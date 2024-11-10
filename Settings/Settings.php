@@ -7,5 +7,5 @@ const DB_NAME     = 'insider';
 const DB_USER     = 'root';
 const DB_PASSWORD = '';
 const DB_CHARSET  = 'utf8mb4';
-
+const MD_ROLES=3;
 const MD_USERS=4;
