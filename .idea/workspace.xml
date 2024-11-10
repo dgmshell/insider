@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="" />
+    <list default="true" id="1848b985-e3a4-41ef-b1c9-afdc17805a5f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,14 +13,12 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
-  <component name="ProjectId" id="2oZyleVAi18SY2fL7mkDJgxZb4d" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2oVP6hEDiyWEopm5R4Qi7gTqbsD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,8 +26,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/xampp/htdocs/insider",
+    "last_opened_file_path": "/Applications/XAMPP/xamppfiles/htdocs/insider",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -49,12 +46,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="" />
-      <created>1731091544958</created>
+      <changelist id="1848b985-e3a4-41ef-b1c9-afdc17805a5f" name="Changes" comment="" />
+      <created>1730951595992</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1731091544958</updated>
-      <workItem from="1731091546091" duration="1424000" />
+      <updated>1730951595992</updated>
+      <workItem from="1730951597321" duration="2108000" />
+      <workItem from="1731036281402" duration="18347000" />
     </task>
     <servers />
   </component>
