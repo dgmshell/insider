@@ -91,14 +91,15 @@ class Permissions extends Controllers
         // Retorna todos los IDs insertados
         return $insertedIds;
     }
-    public function assignPermissions(): array {
+    public function assignPermissions(): false|string
+    {
         $modules = $_POST['module'];
         $roleId = $_POST['roleId'];
         $this->model->deletePermissions($roleId);
         // Llama al modelo para asignar permisos
-        $request= $this->model->assignPermissions($modules, $roleId);
+        $response= $this->model->assignPermissions($modules, $roleId);
         //debug($request);
-        return ["true"];
+        return json_encode($response);
     }
 
 

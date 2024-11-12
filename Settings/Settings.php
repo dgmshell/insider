@@ -2,6 +2,7 @@
 date_default_timezone_set('America/Tegucigalpa');
 
 const ROUTER      = "http://localhost/insider/";
+//const ROUTER      = "https://192.168.1.26/insider/";
 const DB_HOST     = 'localhost';
 const DB_NAME     = 'insider';
 const DB_USER     = 'root';

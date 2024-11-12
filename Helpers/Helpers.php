@@ -53,6 +53,7 @@ function debug($data): void
 /**
  * @throws Exception
  */
+
 function verifyId(int $id): ?array
 {
 
@@ -91,7 +92,7 @@ function getPermissions(int $moduleId): void
         //$roleId = $_SESSION['userData']['roleId'] ?? 1;
         $roleId = 1;
         // Obtener permisos del rol
-        $arrayPermissions = $objPermissions->permissionsModule(1);
+        $arrayPermissions = $objPermissions->permissionsModule(2);
 
         // Asignar permisos generales y específicos del módulo a la sesión
         $_SESSION['permissions'] = $arrayPermissions;
@@ -106,3 +107,24 @@ function getPermissions(int $moduleId): void
     }
 }
 //ME DQUEDE AQUI SEGUIR CON LOS PERMISOS YA LOS OBTENGO TODOS EN LA SESION Y EL PERMISOS POR MODULO TAMBIEN HA QUE VALIDAR
+function adminHeader($data=""): void
+{
+    $adminHeader = "Views/Template/adminHeader.php";
+    require_once $adminHeader;
+}
+function adminFooter($data=""): void
+{
+    $adminFooter = "Views/Template/adminFooter.php";
+    require_once $adminFooter;
+
+}
+
+function emptyFields(array $fields): array {
+    $emptyFields = [];
+    foreach ($fields as $name => $value) {
+        if (empty($value)) {
+            $emptyFields[] = $name;
+        }
+    }
+    return $emptyFields;
+}

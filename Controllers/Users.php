@@ -6,7 +6,7 @@ class Users extends Controllers
     public function __construct()
     {
         parent::__construct();
-        getPermissions(MD_USERS);
+        getPermissions(MD_ROLES);
     }
 
     /**
@@ -17,7 +17,7 @@ class Users extends Controllers
         $data["pageName"]     = "users";
 
         $users = $this->model->getUsers();
-        debug($_SESSION['permissions']);
+        //debug($_SESSION['permissions']);
         //debug($_SESSION['permissionsModule']);
         $this->views->getViews($this, 'users', $data,$users);
     }
@@ -33,6 +33,6 @@ class Users extends Controllers
     public function setNewUser(): void{
         $user     = "newUser";
         $users = $this->model->setNewUser($user);
-        print_r($users);
+
     }
 }

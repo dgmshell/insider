@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/js/handlers/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/js/helpers/customFetch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/js/helpers/http.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/js/helpers/routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/Nsf.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/AuthModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Nsf/nsf.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Template/adminFooter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Template/adminHeader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Permissions.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Permissions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Settings/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/Settings.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,19 +53,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/insider&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/DAVI MALDONADO/Downloads/Archivo comprimido (3)",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -70,11 +83,31 @@
       <option name="presentableId" value="Default" />
       <updated>1731091544958</updated>
       <workItem from="1731091546091" duration="1424000" />
-      <workItem from="1731212894718" duration="816000" />
+      <workItem from="1731212894718" duration="34234000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/Controllers/Auth.php</url>
+          <line>28</line>
+          <properties>
+            <option name="className" value="\Auth" />
+            <option name="methodName" value="setLogin" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Settings/Settings.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

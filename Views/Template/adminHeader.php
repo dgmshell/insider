@@ -1,0 +1,1 @@
+<script>const router = "<?php echo router(); ?>"</script>
