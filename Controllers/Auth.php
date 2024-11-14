@@ -6,6 +6,11 @@ class Auth extends Controllers
     public function __construct()
     {
         parent::__construct();
+        session_start();
+        if (isset($_SESSION['login'])) {
+            header('Location:'.router().'dashboard');
+            exit();
+        }
     }
 
     /**
@@ -57,6 +62,23 @@ class Auth extends Controllers
         // Verificar el resultado de la respuesta del modelo y responder según el caso
         switch ($response["status"]) {
             case "SUCCESS_USER_VALID":
+
+
+                if($response['data']['userStatus'] == 1) {
+                    $_SESSION['userId'] = $response['data']['userId'];
+                    $_SESSION['login'] = true;
+
+
+                    $arrayData = $this->model->sessionLogin($_SESSION['userId']);
+                    debug($_SESSION['userData']);
+                    echo json_encode(array(
+                        'status' => 'login',
+                        'message'=> 'Acceso exitoso, lo estamos redireccionando...',
+                        'redirect'=>true));
+
+                }
+
+
                 echo json_encode([
                     'status' => 'success',
                     'message' => 'Usuario encontrado.',

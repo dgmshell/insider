@@ -5,6 +5,7 @@
  */
 class AuthModel extends Mysql
 {
+    private $intUserId;
     private $strUserEmail;
     private $strUserPassword;
     public function __construct()
@@ -47,6 +48,23 @@ class AuthModel extends Mysql
         ]);
     }
 
+    /**
+     * @throws Exception
+     */
+    public function sessionLogin(int $userId): void
+    {
+        $this->intUserId = $userId;
+        $sql = "SELECT u.userId, u.userEmail, u.userStatus, u.roleId, r.roleName, r.roleDescription, r.roleStatus, p.profileName, p.profileLastName
+            FROM users u
+            INNER JOIN profiles p 
+            ON u.userId = p.userId
+            INNER JOIN roles r 
+            ON u.roleId = r.roleId
+            WHERE u.userId = $this->intUserId";
+        $request = $this->find($sql);
+        $_SESSION['userData'] = $request;
+
+    }
 
 }
 

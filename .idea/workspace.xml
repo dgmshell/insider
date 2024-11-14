@@ -5,21 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/js/handlers/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/js/helpers/customFetch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/js/helpers/http.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/js/helpers/routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/Nsf.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/AuthModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Nsf/nsf.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Template/adminFooter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Template/adminHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/Dashboard.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/Logout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Dashboard/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Permissions.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Permissions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/Settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/AuthModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/AuthModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,18 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "dgmshell"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dgmshell&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/dgmshell/insider.git",
-    "accountId": "c9d1cd61-b7fb-4a0e-80a0-463a71c54671"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dgmshell/insider.git&quot;,
+    &quot;accountId&quot;: &quot;c9d1cd61-b7fb-4a0e-80a0-463a71c54671&quot;
   }
-}]]></component>
+}</component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -57,7 +49,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/DAVI MALDONADO/Downloads/Archivo comprimido (3)",
+    "last_opened_file_path": "C:/xampp/htdocs/btracker",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,8 +61,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23726.107" />
-        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23726.107" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
+        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
       </set>
     </attachedChunks>
   </component>
@@ -84,6 +76,7 @@
       <updated>1731091544958</updated>
       <workItem from="1731091546091" duration="1424000" />
       <workItem from="1731212894718" duration="34234000" />
+      <workItem from="1731536173848" duration="4934000" />
     </task>
     <servers />
   </component>
@@ -93,15 +86,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/Controllers/Auth.php</url>
-          <line>28</line>
-          <properties>
-            <option name="className" value="\Auth" />
-            <option name="methodName" value="setLogin" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Settings/Settings.php</url>
           <line>4</line>
