@@ -97,7 +97,7 @@ function getPermissions(int $moduleId): void
         // Asignar permisos generales y específicos del módulo a la sesión
         $_SESSION['permissions'] = $arrayPermissions;
         $_SESSION['permissionsModule'] = $arrayPermissions[$moduleId] ?? '';
-        debug($_SESSION['permissionsModule']);
+
     } catch (Exception $e) {
         // Manejo de errores
         error_log("Error al obtener permisos: " . $e->getMessage());
@@ -111,6 +111,11 @@ function adminHeader($data=""): void
 {
     $adminHeader = "Views/Template/adminHeader.php";
     require_once $adminHeader;
+}
+function adminNav($data=""): void
+{
+    $adminNav = "Views/Template/adminNav.php";
+    require_once $adminNav;
 }
 function adminFooter($data=""): void
 {

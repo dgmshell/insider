@@ -1,5 +1,5 @@
 <?php
-class Dashboard extends Controllers
+class Payroll extends Controllers
 {
     protected Views $views;
 
@@ -13,12 +13,12 @@ class Dashboard extends Controllers
     /**
      * @throws Exception
      */
-    public function dashboard(): void
+    public function payroll(): void
     {
-        $data["pageName"]     = "dashboard";
+        $data["pageName"]     = "payroll";
 
 //        debug($_SESSION['permissionsModule']);
 //        debug($_SESSION['permissions']);
-        $this->views->getViews($this, 'dashboard', $data);
+        $this->views->getViews($this, 'payroll', $data);
     }
 }
