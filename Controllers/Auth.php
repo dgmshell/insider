@@ -70,20 +70,13 @@ class Auth extends Controllers
 
 
                     $arrayData = $this->model->sessionLogin($_SESSION['userId']);
-                    debug($_SESSION['userData']);
+//                    debug($_SESSION['userData']);
                     echo json_encode(array(
                         'status' => 'login',
                         'message'=> 'Acceso exitoso, lo estamos redireccionando...',
                         'redirect'=>true));
 
                 }
-
-
-                echo json_encode([
-                    'status' => 'success',
-                    'message' => 'Usuario encontrado.',
-                    'redirect' => true
-                ]);
                 break;
 
             case "ERROR_USER_NOT_FOUND":

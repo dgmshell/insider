@@ -44,7 +44,7 @@ export async function setLogin(response) {
     const data = await processResponse(response, 'Permission');
     console.log(data.status)
     switch (data.status) {
-        case 'success':
+        case 'login':
             console.log("Bienvenido")
             //showToast('Exito', data.message, { timeout: 10000, type: 'success' });
             setTimeout(function() {
