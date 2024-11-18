@@ -12,7 +12,7 @@ class Views
      * @param array $data Datos opcionales para pasar a la vista
      * @throws Exception Si la vista no se encuentra.
      */
-    public function getViews(object $controller, string $view, array $data = [],$data1 = []): void
+    public function getViews(object $controller, string $view, array $data = [],$data1 = [],$data2 = [],$data3 = []): void
     {
         // Obtener el nombre corto del controlador
         $controllerName = (new \ReflectionClass($controller))->getShortName();

@@ -45,8 +45,8 @@ export async function setLogin(response) {
     console.log(data.status)
     switch (data.status) {
         case 'login':
-            console.log("Bienvenido")
-            //showToast('Exito', data.message, { timeout: 10000, type: 'success' });
+
+            showToast('Exito', data.message, { timeout: 10000, type: 'success' });
             setTimeout(function() {
                 window.location.href = router +'dashboard';
             }, 5000);
