@@ -57,8 +57,9 @@
         <th>Total Ingresos</th>
         <th  colspan="2">Dias Faltados</th>
         <th>Otras deducciones</th>
-        <th>IHSS</th>
-        <th>RAP FIO</th>
+        <th>IHSS <input type="checkbox" id="checkedIhss"></th>
+        <th>RAP FIO Piso</th>
+        <th>RAP FIO <input type="checkbox" id="checkedRapFio"></th>
         <th>ISR</th>
         <th>Total deducciones</th>
         <th>Total Quincena</th>
@@ -91,6 +92,7 @@
             <td><input data-value="otherDeductions" type="text" value="0.00"></td>
 
             <td><input data-value="ihss" type="text" value="0.00"></td>
+            <td><input data-value="rapFioPiso" type="text" value="11336.32"></td>
             <td><input data-value="rapFio" type="text" value="0.00"></td>
             <td><input data-value="isr" type="text" value="0.00"></td>
             <td><input data-value="totalDeductions" type="text" value="0.00"></td>
@@ -104,91 +106,154 @@
 </table>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("DOMContentLoaded", () => {
+        const valueCalculateRapFio = 0.015;
+        const valueCalculateIhss = 561.14;
+        const checkedIhss = document.getElementById("checkedIhss");
+        const checkedRapFio = document.getElementById("checkedRapFio");
+
+        // Obtener la tabla y las filas del cuerpo
         const table = document.querySelector("table");
         if (!table) {
-            console.error("Table not found.");
-            return;
-        }
+        console.error("Table not found.");
+        return;
+    }
 
         const rows = table.querySelectorAll("tbody tr");
 
-        // Cargar datos desde localStorage si están disponibles
-        let jsonData = JSON.parse(localStorage.getItem('tableData')) || [];
+            const updateIhssValues = () => {
+                rows.forEach((row, index) => {
+                    const ihssInput = row.querySelector("input[data-value='ihss']");
+                    const monthlySalary = parseFloat(row.querySelector("input[data-value='monthlySalary']").value.trim()) || 0;
 
-        // Inicializar el JSON con los datos de la tabla solo si no hay datos en localStorage
-        if (jsonData.length === 0) {
-            rows.forEach(row => {
-                const rowData = {
-                    serialNumber: row.querySelector("input[data-value='serialNumber']")?.value.trim(),
-                    spreadsheetCode: row.querySelector("input[data-value='spreadsheetCode']")?.value.trim(),
-                    codeFortnight: row.querySelector("input[data-value='codeFortnight']")?.value.trim(),
-                    employeeCode: row.querySelector("input[data-value='employeeCode']")?.value.trim(),
-                    profileName: row.querySelector("input[data-value='profileName']")?.value.trim(),
-                    profileIdentity: row.querySelector("input[data-value='profileIdentity']")?.value.trim(),
-                    bankName: row.querySelector("input[data-value='bankName']")?.value.trim(),
-                    accountNumber: row.querySelector("input[data-value='accountNumber']")?.value.trim(),
-                    monthlySalary: parseFloat(row.querySelector("input[data-value='monthlySalary']")?.value.trim()) || 0,
-                    biweeklyBaseSalary: parseFloat(row.querySelector("input[data-value='biweeklyBaseSalary']")?.value.trim()) || 0,
-                    commissions: parseFloat(row.querySelector("input[data-value='commissions']")?.value.trim()) || 0,
-                    bonuses: parseFloat(row.querySelector("input[data-value='bonuses']")?.value.trim()) || 0,
-                    otherIncome: parseFloat(row.querySelector("input[data-value='otherIncome']")?.value.trim()) || 0,
-                    totalRevenue: parseFloat(row.querySelector("input[data-value='totalRevenue']")?.value.trim()) || 0,
-                    daysMissed: parseFloat(row.querySelector("input[data-value='daysMissed']")?.value.trim()) || 0,
-                    deductionLostDays: parseFloat(row.querySelector("input[data-value='deductionLostDays']")?.value.trim()) || 0,
-                    otherDeductions: parseFloat(row.querySelector("input[data-value='otherDeductions']")?.value.trim()) || 0,
-                    ihss: parseFloat(row.querySelector("input[data-value='ihss']")?.value.trim()) || 0,
-                    rapFio: parseFloat(row.querySelector("input[data-value='rapFio']")?.value.trim()) || 0,
-                    isr: parseFloat(row.querySelector("input[data-value='isr']")?.value.trim()) || 0,
-                    totalDeductions: parseFloat(row.querySelector("input[data-value='totalDeductions']")?.value.trim()) || 0,
-                    totalFortnight: parseFloat(row.querySelector("input[data-value='totalFortnight']")?.value.trim()) || 0
-                };
-                jsonData.push(rowData);
-            });
-        }
+                    // Si el checkbox está marcado, asignar el valor de IHSS
+                    if (checkedIhss.checked) {
+                        ihssInput.value = valueCalculateIhss.toFixed(2);
+                        jsonData[index].ihss = valueCalculateIhss; // Actualizar jsonData con el valor de IHSS
+                    } else {
+                        ihssInput.value = 0; // Si no está marcado, dejar el valor en 0
+                        jsonData[index].ihss = 0; // Actualizar jsonData con 0
+                    }
 
-        // Función para recalcular los valores
-        const recalculateRow = (rowIndex) => {
-            const data = jsonData[rowIndex];
-            const row = rows[rowIndex];
-            console.log(rowIndex)
-            // Calcular el totalRevenue (o cualquier otro valor) con base en los datos
-            data.totalRevenue = data.biweeklyBaseSalary + data.commissions + data.bonuses + data.otherIncome;
-            row.querySelector("input[data-value='totalRevenue']").value = data.totalRevenue.toFixed(2);
-
-            // // Calcular deducción por días faltados
-            const dailySalary = data.monthlySalary / 30;
-            data.deductionLostDays = dailySalary * data.daysMissed;
-            row.querySelector("input[data-value='deductionLostDays']").value = data.deductionLostDays.toFixed(2);
-
-            // // Calcular total deducciones
-            data.totalDeductions = data.deductionLostDays + data.otherDeductions + data.ihss + data.rapFio + data.isr;
-            row.querySelector("input[data-value='totalDeductions']").value = data.totalDeductions.toFixed(2);
-            // // Calcular total quincena
-            data.totalFortnight = data.totalRevenue - data.totalDeductions;
-            row.querySelector("input[data-value='totalFortnight']").value = data.totalFortnight.toFixed(2);
-
-            // M QUEDE AQUI YA SUMA LOS TOTALES HAY QUE VERIFICAR AL RECARGAR LA PAGINA DEBE INCIAR EN 0 Y SE DEBE TRAER LDA DAT CON UN FECTH
-            localStorage.setItem('tableData', JSON.stringify(jsonData));
-        };
-
-        // Agregar eventos a los inputs para recalcular en tiempo real cuando se modifiquen
-        rows.forEach((row, index) => {
-            const inputs = row.querySelectorAll("input[data-value]");
-            inputs.forEach((input) => {
-                input.addEventListener("input", () => {
-                    // Actualizar el JSON con los cambios del input
-                    const inputName = input.getAttribute('data-value');
-                    const value = input.value.trim();
-
-                    // Actualizar el valor del JSON para la fila correspondiente
-                    jsonData[index][inputName] = isNaN(value) ? value : parseFloat(value) || 0;
-
-                    // Recalcular la fila y guardar el cambio en localStorage
+                    // Recalcular la fila para actualizar las deducciones totales
                     recalculateRow(index);
                 });
+
+                // Guardar el estado actualizado en localStorage
+                localStorage.setItem('tableData', JSON.stringify(jsonData));
+            };
+
+// Listener para el cambio en el checkbox de IHSS
+            checkedIhss.addEventListener("change", () => {
+                updateIhssValues();
             });
-        });
+
+        // Función para recalcular valores específicos de `rapFio`
+        const updateRapFioValues = () => {
+        rows.forEach((row, index) => {
+        const rapFioInput = row.querySelector("input[data-value='rapFio']");
+        const monthlySalary = parseFloat(row.querySelector("input[data-value='monthlySalary']").value.trim()) || 0;
+        const rapFioPiso = parseFloat(row.querySelector("input[data-value='rapFioPiso']").value.trim()) || 0;
+
+        // Actualizar el valor de rapFio solo si el checkbox está marcado
+
+        const newRapFioValue = checkedRapFio.checked ? (monthlySalary - rapFioPiso) * valueCalculateRapFio : 0;
+
+        // Actualizar el input en la tabla y en el JSON local
+        rapFioInput.value = newRapFioValue.toFixed(2);
+        jsonData[index].rapFio = newRapFioValue;
+
+        // Recalcular la fila para actualizar las deducciones totales
+        recalculateRow(index);
+    });
+
+        // Guardar el estado actualizado en localStorage
+        localStorage.setItem('tableData', JSON.stringify(jsonData));
+    };
+
+        // Listener para cambios en el checkbox
+        checkedRapFio.addEventListener("change", () => {
+        updateRapFioValues();
+    });
+
+        // Función existente para recalcular valores de la fila
+        const recalculateRow = (rowIndex) => {
+        const data = jsonData[rowIndex];
+        const row = rows[rowIndex];
+
+        // Calcular total ingresos
+        data.totalRevenue = data.biweeklyBaseSalary + data.commissions + data.bonuses + data.otherIncome;
+        row.querySelector("input[data-value='totalRevenue']").value = data.totalRevenue.toFixed(2);
+
+        // Calcular deducción por días faltados
+        const dailySalary = data.monthlySalary / 30;
+        data.deductionLostDays = dailySalary * data.daysMissed;
+        row.querySelector("input[data-value='deductionLostDays']").value = data.deductionLostDays.toFixed(2);
+
+        // Calcular total deducciones
+        data.totalDeductions = data.deductionLostDays + data.otherDeductions + data.ihss + data.rapFio + data.isr;
+        row.querySelector("input[data-value='totalDeductions']").value = data.totalDeductions.toFixed(2);
+
+        // Calcular total quincena
+        data.totalFortnight = data.totalRevenue - data.totalDeductions;
+        row.querySelector("input[data-value='totalFortnight']").value = data.totalFortnight.toFixed(2);
+
+        // Guardar cambios en localStorage
+        localStorage.setItem('tableData', JSON.stringify(jsonData));
+    };
+
+        // Agregar eventos de entrada a los inputs para recalcular en tiempo real
+        rows.forEach((row, index) => {
+        const inputs = row.querySelectorAll("input[data-value]");
+        inputs.forEach((input) => {
+        input.addEventListener("input", () => {
+        // Actualizar el JSON con los cambios del input
+        const inputName = input.getAttribute('data-value');
+        const value = input.value.trim();
+
+        jsonData[index][inputName] = isNaN(value) ? value : parseFloat(value) || 0;
+
+        // Recalcular la fila y guardar cambios
+        recalculateRow(index);
+    });
+    });
+    });
+
+        // Cargar datos desde localStorage o inicializar JSON
+        let jsonData = JSON.parse(localStorage.getItem('tableData')) || [];
+
+        if (jsonData.length === 0) {
+        rows.forEach(row => {
+        const rowData = {
+        serialNumber: row.querySelector("input[data-value='serialNumber']")?.value.trim(),
+        spreadsheetCode: row.querySelector("input[data-value='spreadsheetCode']")?.value.trim(),
+        codeFortnight: row.querySelector("input[data-value='codeFortnight']")?.value.trim(),
+        employeeCode: row.querySelector("input[data-value='employeeCode']")?.value.trim(),
+        profileName: row.querySelector("input[data-value='profileName']")?.value.trim(),
+        profileIdentity: row.querySelector("input[data-value='profileIdentity']")?.value.trim(),
+        bankName: row.querySelector("input[data-value='bankName']")?.value.trim(),
+        accountNumber: row.querySelector("input[data-value='accountNumber']")?.value.trim(),
+        monthlySalary: parseFloat(row.querySelector("input[data-value='monthlySalary']")?.value.trim()) || 0,
+        biweeklyBaseSalary: parseFloat(row.querySelector("input[data-value='biweeklyBaseSalary']")?.value.trim()) || 0,
+        commissions: parseFloat(row.querySelector("input[data-value='commissions']")?.value.trim()) || 0,
+        bonuses: parseFloat(row.querySelector("input[data-value='bonuses']")?.value.trim()) || 0,
+        otherIncome: parseFloat(row.querySelector("input[data-value='otherIncome']")?.value.trim()) || 0,
+        totalRevenue: parseFloat(row.querySelector("input[data-value='totalRevenue']")?.value.trim()) || 0,
+        daysMissed: parseFloat(row.querySelector("input[data-value='daysMissed']")?.value.trim()) || 0,
+        deductionLostDays: parseFloat(row.querySelector("input[data-value='deductionLostDays']")?.value.trim()) || 0,
+        otherDeductions: parseFloat(row.querySelector("input[data-value='otherDeductions']")?.value.trim()) || 0,
+        ihss: parseFloat(row.querySelector("input[data-value='ihss']")?.value.trim()) || 0,
+        rapFioPiso: parseFloat(row.querySelector("input[data-value='rapFioPiso']")?.value.trim()) || 0,
+        rapFio: parseFloat(row.querySelector("input[data-value='rapFio']")?.value.trim()) || 0,
+        isr: parseFloat(row.querySelector("input[data-value='isr']")?.value.trim()) || 0,
+        totalDeductions: parseFloat(row.querySelector("input[data-value='totalDeductions']")?.value.trim()) || 0,
+        totalFortnight: parseFloat(row.querySelector("input[data-value='totalFortnight']")?.value.trim()) || 0
+    };
+        jsonData.push(rowData);
+    });
+
+        localStorage.setItem('tableData', JSON.stringify(jsonData));
+    }
     });
 
 </script>
