@@ -128,9 +128,36 @@
     });
 }
 
+function statusCheckbox() {
+    // Obtén el estado de los checkboxes del localStorage
+    const statusCheckbox = JSON.parse(localStorage.getItem('statusCheckbox')) || {};
 
+    // Referencias a los checkboxes
+    const checkboxes = {
+        checkedIhss: document.getElementById('checkedIhss'),
+        checkedRapFio: document.getElementById('checkedRapFio'),
+        checkedIsr: document.getElementById('checkedIsr'),
+    };
+
+    // Establece el estado inicial de los checkboxes según el localStorage
+    for (let key in checkboxes) {
+        if (statusCheckbox[key] !== undefined) {
+            checkboxes[key].checked = statusCheckbox[key];
+        }
+    }
+
+    // Agrega un evento de cambio para cada checkbox
+    Object.keys(checkboxes).forEach((key) => {
+        checkboxes[key].addEventListener('change', () => {
+            // Actualiza el estado del checkbox en el localStorage
+            statusCheckbox[key] = checkboxes[key].checked;
+            localStorage.setItem('statusCheckbox', JSON.stringify(statusCheckbox));
+        });
+    });
+}
 
     document.addEventListener("DOMContentLoaded", () => {
+        statusCheckbox()
         populateTableFromLocalStorage();
         let jsonData = JSON.parse(localStorage.getItem('tableData')) || [];
         const valueCalculateRapFio = 0.015;
