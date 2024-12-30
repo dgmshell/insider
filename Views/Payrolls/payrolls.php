@@ -40,7 +40,8 @@
         <td><?php echo $row['codeFortnight']; ?></td>
         <td><?php echo $row['startDate']; ?> <?php echo $row['endDate']; ?></td>
         <td><?php echo $row['payrollCreationDate']; ?></td>
-        <td><a href="http://localhost/insider/payrolls/details/<?php echo $row['codeFortnight']; ?>">Ver Planilla</a></td>
+        <td><a href="http://localhost/insider/payrolls/create/<?php echo $row['payrollId']; ?>">Crear</a></td>
+        <td><a href="http://localhost/insider/payrolls/details/<?php echo $row['payrollId']; ?>">Ver Planilla</a></td>
     </tr>
         <?php
     }

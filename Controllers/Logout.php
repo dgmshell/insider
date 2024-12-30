@@ -12,5 +12,13 @@ class Logout
         session_destroy();
         header('Location: auth/login');
         exit();
+    
+    }
+    function block()
+    {
+        if (isset($_SESSION['user'])) {
+            header('Location: auth/login');
+            exit();
+        }
     }
 }

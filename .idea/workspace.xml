@@ -5,8 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Views/Template/pageFooter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Template/pageHeader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Template/pageNav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Payrolls/details.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Payrolls/details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/js/handlers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/js/handlers/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Payrolls.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/AuthModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/AuthModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/PayrollsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/PayrollsModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/UsersModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UsersModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Settings/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/Settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Dashboard/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Dashboard/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Payrolls/payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Payrolls/payrolls.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Permissions/assign.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Permissions/assign.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Template/adminNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/adminNav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Users/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Users/users.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +62,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/btracker&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/insider/Views/Template&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -54,6 +72,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\insider\Views\Template" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\insider\Assets\css\libraries" />
     </key>
@@ -80,6 +101,13 @@
       <workItem from="1731995580735" duration="3667000" />
       <workItem from="1732085337535" duration="3507000" />
       <workItem from="1732160751948" duration="6002000" />
+      <workItem from="1733799744082" duration="1970000" />
+      <workItem from="1734663560462" duration="592000" />
+      <workItem from="1734907986517" duration="4060000" />
+      <workItem from="1735008809109" duration="7166000" />
+      <workItem from="1735412754352" duration="3732000" />
+      <workItem from="1735424568336" duration="15000" />
+      <workItem from="1735542014902" duration="720000" />
     </task>
     <servers />
   </component>

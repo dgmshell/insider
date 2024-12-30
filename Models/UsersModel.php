@@ -15,7 +15,7 @@ class UsersModel extends Mysql
      */
     public function getUsers(): ?array
     {
-        $query   = "SELECT * FROM users";
+        $query   = "SELECT * FROM users INNER JOIN profiles ON users.userId = profiles.userId";
         return $this->findAll($query);
     }
     public function setNewUser(string $user): ?array{

@@ -89,13 +89,14 @@ function getPermissions(int $moduleId): void
         $objPermissions = new PermissionsModel();
 
         // Suponiendo que el roleId es de la sesión o algún valor predefinido
-        //$roleId = $_SESSION['userData']['roleId'] ?? 1;
-        $roleId = 1;
+        $roleId = $_SESSION['userData']['roleId'] ?? 0;
+        //$roleId = 1;
         // Obtener permisos del rol
-        $arrayPermissions = $objPermissions->permissionsModule(2);
+        $arrayPermissions = $objPermissions->permissionsModule($roleId);
 
         // Asignar permisos generales y específicos del módulo a la sesión
         $_SESSION['permissions'] = $arrayPermissions;
+
         $_SESSION['permissionsModule'] = $arrayPermissions[$moduleId] ?? '';
 
     } catch (Exception $e) {

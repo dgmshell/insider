@@ -10,7 +10,7 @@ $users=$data1;
     foreach($users as $user){
 
 ?>
-        <a href="<?php echo router(); ?>permissions/assign/<?php echo $user['userId']; ?>"><?php echo $user['userEmail']; ?></a>
+        <a href="<?php echo router(); ?>permissions/assign/<?php echo $user['userId']; ?>"><?php echo $user['profileEmail']; ?></a>
         <br>
         <?php
     }

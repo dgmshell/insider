@@ -22,11 +22,23 @@ class Payrolls extends Controllers
         $payrolls = $this->model->getPayrolls();
         $this->views->getViews($this, 'payrolls', $data,$payrolls);
     }
+    function create($id) : void {
+        $data["pageName"]     = "createPayroll";
+        $employees = $this->model->getEmployees($id);
+        $payroll = $this->model->getEmployees($id);
+        $details = $this->model->getPayrollDetails($id);
 
+        if (empty($payroll)) {
+            return;
+        }
+//        debug($payroll);
+//        debug($details);
+        $this->views->getViews($this, 'create', $data,$payroll,$details);
+    }
     /**
      * @throws Exception
      */
-    public function details($id): void
+    public function details($id) : void
     {
         $data["pageName"]     = "details";
         $employees = $this->model->getEmployees($id);

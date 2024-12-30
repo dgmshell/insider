@@ -17,8 +17,8 @@ class Users extends Controllers
         $data["pageName"]     = "users";
 
         $users = $this->model->getUsers();
-        //debug($_SESSION['permissions']);
-        //debug($_SESSION['permissionsModule']);
+        debug($_SESSION['permissions']);
+        debug($_SESSION['permissionsModule']);
         $this->views->getViews($this, 'users', $data,$users);
     }
 

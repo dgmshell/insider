@@ -5,6 +5,7 @@
     <table>
         <thead>
         <tr>
+            <th>Module Id</th>
             <th>Module</th>
             <th>Create</th>
             <th>Read</th>

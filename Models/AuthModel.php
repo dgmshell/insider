@@ -16,12 +16,12 @@ class AuthModel extends Mysql
     /**
      * @throws Exception
      */
-    public function setLogin($data)
+    public function setLogin($data): false|string
     {
         $this->strUserEmail = $data["userEmail"];
         $this->strUserPassword = $data["userPassword"];
 
-        $query = "SELECT * FROM users WHERE userEmail = ?";
+        $query = "SELECT * FROM users WHERE userName = ?";
         $request = $this->find($query, [$this->strUserEmail]);
 
         if (empty($request)) {
@@ -54,7 +54,7 @@ class AuthModel extends Mysql
     public function sessionLogin(int $userId): void
     {
         $this->intUserId = $userId;
-        $sql = "SELECT u.userId, u.userEmail, u.userStatus, u.roleId, r.roleName, r.roleDescription, r.roleStatus, p.profileName, p.profileLastName
+        $sql = "SELECT u.userId, u.userName, u.userStatus, u.roleId, r.roleName, r.roleDescription, r.roleStatus, p.profileNames, p.profileSurnames
             FROM users u
             INNER JOIN profiles p 
             ON u.userId = p.userId
@@ -63,8 +63,6 @@ class AuthModel extends Mysql
             WHERE u.userId = $this->intUserId";
         $request = $this->find($sql);
         $_SESSION['userData'] = $request;
-
     }
-
 }
 

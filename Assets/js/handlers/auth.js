@@ -52,13 +52,12 @@ export async function setLogin(response) {
             }, 5000);
             break;
 
-        case 'fileSizeError':
-            //showToast('Error', data.message, { timeout: 10000, type: 'error' });
+        case 'error':
+            showToast('Error', data.message, { timeout: 10000, type: 'error' });
             break;
 
         default:
-            //
-            // showToast('Error', data.message, { timeout: 10000, type: 'error' });
+             showToast('Error', data.message, { timeout: 10000, type: 'error' });
             break;
     }
 }

@@ -34,7 +34,7 @@ class PayrollsModel extends Mysql
      */
     public function getPayrollDetails($id): array
     {
-        $query = "SELECT * FROM payrolls WHERE codeFortnight =?";
+        $query = "SELECT * FROM payrolls WHERE payrollId =?";
         $request = $this->find($query, [$id]);
 
         if (empty($request)) {

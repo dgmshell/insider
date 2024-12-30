@@ -31,7 +31,7 @@ class Auth extends Controllers
         $this->views->getViews($this, 'login', $data);
 
     }
-    public function setLogin()
+    public function setLogin(): void
     {
         // Obtener y decodificar los datos JSON recibidos en la solicitud
         $data = file_get_contents('php://input');

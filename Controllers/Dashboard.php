@@ -7,7 +7,15 @@ class Dashboard extends Controllers
     {
         parent::__construct();
         session_start();
-        getPermissions(MD_USERS);
+
+
+        if (!isset($_SESSION['userId']) || !isset($_SESSION['login'])) {
+
+            header('Location:'.router().'auth/login');
+            exit();
+        }
+        getPermissions(MD_DASHBOARD);
+
     }
 
     /**
@@ -17,8 +25,11 @@ class Dashboard extends Controllers
     {
         $data["pageName"]     = "dashboard";
 
-//        debug($_SESSION['permissionsModule']);
-//        debug($_SESSION['permissions']);
+   //debug($_SESSION['permissionsModule']);
+
+    //debug($_SESSION['permissions']);
+    //echo $_SESSION['userId'];
+        //echo $_SESSION['login'];
         $this->views->getViews($this, 'dashboard', $data);
     }
 }
