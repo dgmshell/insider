@@ -342,6 +342,7 @@
 <!--== #HEADER ==-->
 <?php adminHeader($data); ?>
 <script>
+    const  payrollId= <?= json_encode($data["payrollId"]) ?>;
     form = document.getElementById('create-details')
 
     form.addEventListener('click', function(e){
@@ -349,7 +350,7 @@
         let obj = JSON.parse(localStorage.getItem('tableData')) || [];
         console.log(obj)
 
-        fetch('http://localhost/insider/payrolls/setDetails', {
+        fetch('http://localhost/insider/payrolls/setDetails/'+payrollId, {
             method: 'POST', // or 'PUT'
             body: JSON.stringify(obj),
         })

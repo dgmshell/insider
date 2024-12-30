@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Views/Template/pageFooter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Template/pageHeader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Template/pageNav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/js/handlers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/js/handlers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Payrolls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/AuthModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/AuthModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/PayrollsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/PayrollsModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/UsersModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UsersModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Settings/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/Settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Dashboard/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Dashboard/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Payrolls/payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Payrolls/payrolls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Permissions/assign.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Permissions/assign.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Template/adminNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/adminNav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Users/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Users/users.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,23 +40,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/insider/Views/Template&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/xampp/htdocs/insider",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\insider\Views\Template" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\insider\Assets\css\libraries" />
     </key>
@@ -82,8 +61,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23726.107" />
-        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23726.107" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
+        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
       </set>
     </attachedChunks>
   </component>
@@ -98,16 +77,15 @@
       <workItem from="1731091546091" duration="1424000" />
       <workItem from="1731212894718" duration="34234000" />
       <workItem from="1731536173848" duration="4934000" />
-      <workItem from="1731995580735" duration="3667000" />
-      <workItem from="1732085337535" duration="3507000" />
-      <workItem from="1732160751948" duration="6002000" />
-      <workItem from="1733799744082" duration="1970000" />
-      <workItem from="1734663560462" duration="592000" />
-      <workItem from="1734907986517" duration="4060000" />
-      <workItem from="1735008809109" duration="7166000" />
-      <workItem from="1735412754352" duration="3732000" />
-      <workItem from="1735424568336" duration="15000" />
-      <workItem from="1735542014902" duration="720000" />
+      <workItem from="1731995580735" duration="3454000" />
+      <workItem from="1733441290456" duration="4000" />
+      <workItem from="1733441306482" duration="55000" />
+      <workItem from="1733961667363" duration="1327000" />
+      <workItem from="1734026393846" duration="152000" />
+      <workItem from="1734116499035" duration="664000" />
+      <workItem from="1734570050152" duration="916000" />
+      <workItem from="1735239790701" duration="594000" />
+      <workItem from="1735587226228" duration="684000" />
     </task>
     <servers />
   </component>

@@ -24,6 +24,7 @@ class Payrolls extends Controllers
     }
     function create($id) : void {
         $data["pageName"]     = "createPayroll";
+        $data["payrollId"] = $id;
         $employees = $this->model->getEmployees($id);
         $payroll = $this->model->getEmployees($id);
         $details = $this->model->getPayrollDetails($id);
@@ -31,8 +32,8 @@ class Payrolls extends Controllers
         if (empty($payroll)) {
             return;
         }
-//        debug($payroll);
-//        debug($details);
+        // debug($payroll);
+        // debug($details);
         $this->views->getViews($this, 'create', $data,$payroll,$details);
     }
     /**
@@ -51,5 +52,15 @@ class Payrolls extends Controllers
 //        debug($payroll);
 //        debug($details);
         $this->views->getViews($this, 'details', $data,$payroll,$details);
+    }
+
+    public function setDetails($id) : void
+    {
+        $data["pageName"]     = "setDetails";
+
+        $data = file_get_contents('php://input');
+        $json = json_decode($data, true);
+
+        debug($json);
     }
 }
