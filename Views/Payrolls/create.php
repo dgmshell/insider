@@ -210,7 +210,8 @@ function statusCheckbox() {
 
                 // Si el checkbox está marcado, asignar el valor de ISR
                 if (checkedIsr.checked) {
-                    const calculatedIsr = (valueCalculateIsr / 9).toFixed(2);
+                    //const calculatedIsr = (valueCalculateIsr / 9).toFixed(2);
+                    const calculatedIsr = Math.round((valueCalculateIsr / 9) * 100) / 100;
 
                     if (inputKey===profileIdentity){
                         isrInput.value = calculatedIsr;
@@ -225,7 +226,7 @@ function statusCheckbox() {
                     const targetIndex = jsonData.findIndex(item => item.profileIdentity === profileIdentity);
                     if (targetIndex !== -1) {
 
-                        jsonData[targetIndex].isr = parseFloat(calculatedIsr); // Actualizar el valor de `isr` en el JSON
+                        jsonData[targetIndex].isr = calculatedIsr;
                     }
 
 
@@ -266,10 +267,10 @@ function statusCheckbox() {
                 // Actualizar el valor de rapFio solo si el checkbox está marcado
 
                 const newRapFioValue = checkedRapFio.checked ? (monthlySalary - rapFioPiso) * valueCalculateRapFio : 0;
-
+                const roundedRapFioValue = Math.round(newRapFioValue * 100) / 100;
                 // Actualizar el input en la tabla y en el JSON local
                 rapFioInput.value = newRapFioValue.toFixed(2);
-                jsonData[index].rapFio = newRapFioValue;
+                jsonData[index].rapFio = roundedRapFioValue;
 
                 // Recalcular la fila para actualizar las deducciones totales
                 recalculateRow(index);
