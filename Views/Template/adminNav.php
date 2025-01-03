@@ -26,6 +26,7 @@
             if (isset($_SESSION['permissions'][1]['r']) && $_SESSION['permissions'][1]['r'] === 1): ?>
                 <a href="<?php echo router(); ?>modules">Modules</a>
             <?php endif; ?>
+            <a href="<?php echo router(); ?>payrolls">Payrolls</a>
         </div>
         <div class="right">
         <a href="<?php echo router(); ?>logout">Log Out</a>
