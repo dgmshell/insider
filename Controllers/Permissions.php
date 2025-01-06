@@ -30,8 +30,9 @@ class Permissions extends Controllers
             exit();
         }
 
-        $verifyIdDb = verifyId($id);
-        if (empty($verifyIdDb['total']) || $verifyIdDb['total'] == 0) {
+
+        $verifiedId = verifyId('users', 'userId', $id);
+        if (empty($verifiedId['total']) || $verifiedId['total'] == 0) {
             handleError();
             echo "id no encontrado";
             exit();
@@ -39,7 +40,7 @@ class Permissions extends Controllers
 
         $modules = $this->model->getModules($id);
         $permissionsRole = $this->model->permissionRoleId($id);
-
+        //debug($permissionsRole);
         $defaultPermissions = ['c' => 0, 'r' => 0, 'u' => 0, 'd' => 0];
         $data1 = ['roleId' => $id];
 
@@ -48,6 +49,7 @@ class Permissions extends Controllers
             $module['permissions'] = $defaultPermissions;
 
             foreach ($permissionsRole as $permRole) {
+                //debug($permRole);
                 if ($permRole['moduleId'] === $module['moduleId']) {
                     $module['permissions'] = [
                         'c' => $permRole['c'],
@@ -65,37 +67,10 @@ class Permissions extends Controllers
         $data["userId"] = $id;
         $this->views->getViews($this, 'assign', $data, $data1);
     }
-    public function assignPermissions1(): array {
-        $modules = $_POST['module'];
-        $roleId = $_POST['roleId'];
-
-        // Elimina permisos anteriores para este rol
-        $this->model->deletePermissions($roleId);
-
-        // Almacena los IDs insertados
-        $insertedIds = [];
-
-        foreach ($modules as $module) {
-            $moduleId = $module['moduleId'];
-            $c = empty($module['c']) ? 0 : 1;
-            $r = empty($module['r']) ? 0 : 1;
-            $u = empty($module['u']) ? 0 : 1;
-            $d = empty($module['d']) ? 0 : 1;
-
-            // Asigna permisos y guarda el ID insertado
-            $insertedId = $this->model->assignPermissions($roleId, $moduleId, $c, $r, $u, $d);
-            $insertedIds[] = $insertedId; // Agrega el ID a la lista
-            //debug($insertedId);
-        }
-
-        // Retorna todos los IDs insertados
-        return $insertedIds;
-    }
     public function assignPermissions(): false|string
     {
         $modules = $_POST['module'];
         $roleId = $_POST['roleId'];
-        $this->model->deletePermissions($roleId);
         // Llama al modelo para asignar permisos
         $response= $this->model->assignPermissions($modules, $roleId);
         //debug($request);

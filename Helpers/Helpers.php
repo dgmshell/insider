@@ -54,12 +54,12 @@ function debug($data): void
  * @throws Exception
  */
 
-function verifyId(int $id): ?array
+function verifyId(string $table, string $column, int $id): array
 {
 
     require_once ("Models/HelpersModel.php");
     $request = new HelpersModel();
-    return $request->verifyId($id);
+    return $request->verifyId($table, $column, $id);
 }
 /**
  * Maneja errores de carga de controlador o método.

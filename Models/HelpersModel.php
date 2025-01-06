@@ -13,9 +13,9 @@ class HelpersModel extends Mysql
     /**
      * @throws Exception
      */
-    public function verifyId(int $id): array
+    public function verifyId(string $table, string $column, int $id): array
     {
-        $query   = "SELECT COUNT(*) as total FROM users WHERE userId = ?";
-        return $this->find($query, (array)$id);
+        $query = "SELECT COUNT(*) as total FROM {$table} WHERE {$column} = ?";
+        return $this->find($query, [$id]);
     }
 }

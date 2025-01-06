@@ -26,6 +26,7 @@
         $dCheck = $permissions['d'] == 1 ? " checked " : "";
 
         $moduleId = $modules[$i]['moduleId'];
+            debug($modules);
         ?>
             <tr>
         <td>

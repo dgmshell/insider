@@ -44,6 +44,8 @@ class PermissionsModel extends Mysql
         $insertedIds = [];
 
         try {
+            $this->deletePermissions($roleId);
+
             foreach ($modules as $module) {
                 $moduleId = $module['moduleId'];
 
@@ -79,41 +81,68 @@ class PermissionsModel extends Mysql
      * @return string Estado de la eliminación de permisos.
      * @throws Exception Si ocurre un error durante la eliminación de permisos.
      */
-    public function deletePermissions(string $roleIds): string
+//    public function deletePermissions(string $roleIds): string
+//    {
+//        debug($roleIds);
+//        // Convertir los IDs en un arreglo para usarlos en la consulta
+//        $roleIdsArray = explode(",", $roleIds);
+//        $placeholders = implode(',', array_fill(0, count($roleIdsArray), '?'));
+//
+//        // Solo inicia una transacción si no hay una activa
+//        if (!$this->inTransaction()) {
+//            $this->beginTransaction();
+//        }
+//
+//        try {
+//            // Verificar si existen permisos para estos roleIds
+//            $sql = "SELECT roleId FROM permissions WHERE roleId IN ($placeholders)";
+//            $existingRoleIds = $this->findAll($sql, $roleIdsArray);
+//
+//            $countInputIds = count($roleIdsArray);
+//            $countExistingIds = count($existingRoleIds);
+//
+//            if ($countExistingIds > 0) {
+//                $deleteSql = "DELETE FROM permissions WHERE roleId IN ($placeholders)";
+//                $this->deleteRecord($deleteSql, $roleIdsArray);
+//
+//                if (!$this->inTransaction()) {
+//                    $this->commitTransaction();
+//                }
+//
+//                return ($countInputIds > $countExistingIds) ? 'DATA_DELETE_INCOMPLETE' : 'DATA_DELETE';
+//            }
+//
+//            // Si no hay permisos que eliminar, revertir transacción
+//            if ($this->inTransaction()) {
+//                $this->rollbackTransaction();
+//            }
+//            return 'empty';
+//        } catch (Exception $e) {
+//            // Revertir la transacción en caso de error
+//            if ($this->inTransaction()) {
+//                $this->rollbackTransaction();
+//            }
+//            throw $e; // Lanzar la excepción original para conservar el stack trace
+//        }
+//    }
+    public function deletePermissions(int $roleId): string
     {
-        // Convertir los IDs en un arreglo para usarlos en la consulta
-        $roleIdsArray = explode(",", $roleIds);
-        $placeholders = implode(',', array_fill(0, count($roleIdsArray), '?'));
-
         // Solo inicia una transacción si no hay una activa
         if (!$this->inTransaction()) {
             $this->beginTransaction();
         }
 
         try {
-            // Verificar si existen permisos para estos roleIds
-            $sql = "SELECT roleId FROM permissions WHERE roleId IN ($placeholders)";
-            $existingRoleIds = $this->findAll($sql, $roleIdsArray);
+            // Eliminar los permisos asociados al roleId recibido
+            $sql = "DELETE FROM permissions WHERE roleId = ?";
+            $this->deleteRecord($sql, [$roleId]);
 
-            $countInputIds = count($roleIdsArray);
-            $countExistingIds = count($existingRoleIds);
-
-            if ($countExistingIds > 0) {
-                $deleteSql = "DELETE FROM permissions WHERE roleId IN ($placeholders)";
-                $this->deleteRecord($deleteSql, $roleIdsArray);
-
-                if (!$this->inTransaction()) {
-                    $this->commitTransaction();
-                }
-
-                return ($countInputIds > $countExistingIds) ? 'DATA_DELETE_INCOMPLETE' : 'DATA_DELETE';
+            // Confirmar la transacción si no había una activa previamente
+            if (!$this->inTransaction()) {
+                $this->commitTransaction();
             }
 
-            // Si no hay permisos que eliminar, revertir transacción
-            if ($this->inTransaction()) {
-                $this->rollbackTransaction();
-            }
-            return 'empty';
+            return 'DATA_DELETE';  // Devuelve un mensaje indicando que se eliminaron los permisos
         } catch (Exception $e) {
             // Revertir la transacción en caso de error
             if ($this->inTransaction()) {
@@ -122,6 +151,7 @@ class PermissionsModel extends Mysql
             throw $e; // Lanzar la excepción original para conservar el stack trace
         }
     }
+
     public function permissionsModule(int $roleId): array
     {
         // Iniciar la transacción

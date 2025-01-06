@@ -22,36 +22,108 @@ class Payrolls extends Controllers
         $payrolls = $this->model->getPayrolls();
         $this->views->getViews($this, 'payrolls', $data,$payrolls);
     }
+
+    /**
+     * @throws Exception
+     */
     function create($id) : void {
+
+        // Verifica si el ID es válido
+        if (!validateId($id)) {
+            handleError();
+            exit();
+        }
+
+        $verifiedId = verifyId('payrolls', 'payrollId', $id);
+        if (empty($verifiedId['total']) || $verifiedId['total'] == 0) {
+            handleError();
+            echo "id no encontrado";
+            exit();
+        }
+
+
         $data["pageName"]     = "createPayroll";
         $data["payrollId"] = $id;
+
+
+
         $employees = $this->model->getEmployees($id);
-        $payroll = $this->model->getEmployees($id);
-        $details = $this->model->getPayrollDetails($id);
+
+        $payroll = $this->model->getPayrollDetails($id);
 
         if (empty($payroll)) {
             return;
         }
-        // debug($payroll);
-        // debug($details);
-        $this->views->getViews($this, 'create', $data,$payroll,$details);
+
+        //debug($employees);
+        //debug($payroll);
+        $this->views->getViews($this, 'create', $data,$payroll,$employees);
     }
     /**
      * @throws Exception
      */
     public function details($id) : void
     {
-        $data["pageName"]     = "details";
-        $employees = $this->model->getEmployees($id);
-        $payroll = $this->model->getEmployees($id);
-        $details = $this->model->getPayrollDetails($id);
 
-        if (empty($payroll)) {
-            return;
+        // Verifica si el ID es válido
+        if (!validateId($id)) {
+            handleError();
+            exit();
         }
-//        debug($payroll);
-//        debug($details);
-        $this->views->getViews($this, 'details', $data,$payroll,$details);
+
+        $verifiedId = verifyId('payrolls', 'payrollId', $id);
+        if (empty($verifiedId['total']) || $verifiedId['total'] == 0) {
+            handleError();
+            echo "id no encontrado";
+            exit();
+        }
+
+
+        $data["pageName"]     = "createPayroll";
+        $data["payrollId"] = $id;
+
+        $employees = $this->model->getEmployees($id);
+
+        $detailPayroll = $this->model->detailPayrollId($id);
+
+        $defaultDetail = ['commissions' => 0];
+        $data1 = ['payrollId' => $id];
+//        if (empty($payroll)) {
+//            return;
+//        }
+
+        foreach ($employees as &$detail) {
+            $detail['details'] = $defaultDetail;
+
+            foreach ($detailPayroll as $employee) {
+                //debug($employee);
+                if ($employee['employeeId'] === $detail['employeeId']) {
+                    $detail['details'] = [
+                        'codeFortnight' => $employee['codeFortnight'],
+                        'employeeCode' => $detail['employeeCode'],
+                        'profileNames' => $detail['profileNames'],
+                        'profileIdentity' => $detail['profileIdentity'],
+                        'bankName' => $detail['bankName'],
+                        'accountNumber' => $detail['accountNumber'],
+                        'monthlySalary' => $detail['monthlySalary'],
+                        'commissions' => $employee['commissions']
+                    ];
+                    break;
+                }
+            }
+        }
+
+        $data1['employees'] = $employees;
+
+        $data["userId"] = $id;
+        //debug($data1['employees']);
+
+
+
+
+        //debug($employees);
+        //debug($payroll);
+        $this->views->getViews($this, 'details', $data,$data1);
     }
 
     public function setDetails($id) : void
@@ -61,6 +133,7 @@ class Payrolls extends Controllers
         $data = file_get_contents('php://input');
         $json = json_decode($data, true);
 
-        debug($json);
+        $request =   $this->model->setPayrollDetail($json,$id);
+
     }
 }

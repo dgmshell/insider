@@ -69,13 +69,13 @@
     <?php
     // Recorrer los datos y generar filas dinámicamente
     $n = 1;
-    foreach ($data1 as $row) {
+    foreach ($data2 as $row) {
         ?>
         <tr>
             <td><input data-value="serialNumber" type="text" value="<?php echo $n; ?>"></td>
-            <td><input data-value="spreadsheetCode" type="text" value="<?php echo $data2['codeFortnight']; ?><?php echo $row['employeeCode']; ?>"></td>
-            <td><input data-value="codeFortnight" type="text" value="<?php echo $data2['codeFortnight']; ?>"></td>
-            <td><input data-value="employeeCode" type="text" value="<?php echo $row['employeeCode']; ?>"></td>
+            <td><input data-value="spreadsheetCode" type="text" value="<?php echo $data1['codeFortnight']; ?><?php echo $row['employeeCode']; ?>"></td>
+            <td><input data-value="codeFortnight" type="text" value="<?php echo $data1['codeFortnight']; ?>"></td>
+            <td><input data-value="employeeId" type="hidden" value="<?php echo $row['employeeId']; ?>"><input data-value="employeeCode" type="text" value="<?php echo $row['employeeCode']; ?>"></td>
             <td><input data-value="profileName" type="text" value="<?php echo $row['profileNames']; ?> <?php echo $row['profileSurnames']; ?>"></td>
             <td><input data-value="profileIdentity" type="text" value="<?php echo $row['profileIdentity']; ?>"></td>
             <td><input data-value="bankName" type="text" value="<?php echo $row['bankName']; ?>"></td>
@@ -337,6 +337,7 @@ function statusCheckbox() {
                     serialNumber: row.querySelector("input[data-value='serialNumber']")?.value.trim(),
                     spreadsheetCode: row.querySelector("input[data-value='spreadsheetCode']")?.value.trim(),
                     codeFortnight: row.querySelector("input[data-value='codeFortnight']")?.value.trim(),
+                    employeeId: row.querySelector("input[data-value='employeeId']")?.value.trim(),
                     employeeCode: row.querySelector("input[data-value='employeeCode']")?.value.trim(),
                     profileName: row.querySelector("input[data-value='profileName']")?.value.trim(),
                     profileIdentity: row.querySelector("input[data-value='profileIdentity']")?.value.trim(),

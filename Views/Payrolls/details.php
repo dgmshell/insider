@@ -1,5 +1,6 @@
 <!--== #HEADER ==-->
-<?php adminHeader($data); ?>
+<?php /** @var Payrolls $data */
+adminHeader($data); ?>
 <!--== #NAV ==-->
 <?php adminNav($data); ?>
 <style>
@@ -29,291 +30,75 @@
 </style>
 
 <h1>Planilla Detallada</h1>
-<div style="text-align: center">
-    <button onclick="reset()">Reset</button>
-</div>
-<script>
-    function reset(){
-        localStorage.removeItem('tableData');
+<form action="" id="form-data">
+    <input type="text" name="roleId" value="<?php echo $data1['payrollId']; ?>">
 
-    }
-</script>
-<table>
-    <thead>
-    <tr>
-        <th>No.</th>
-        <th>Código Planilla</th>
-        <th>Código Quincena</th>
-        <th>Código Colaborador</th>
-        <th>Nombre</th>
-        <th>No. DNI</th>
-        <th>Banco</th>
-        <th>Cuenta</th>
-        <th>Sueldo Mensual</th>
-        <th>Sueldo Base Quincenal</th>
-        <th>Comisiones</th>
-        <th>Bonificaciones</th>
-        <th>Otros Ingresos</th>
-        <th>Total Ingresos</th>
-        <th  colspan="2">Dias Faltados</th>
-        <th>Otras deducciones</th>
-        <th>IHSS <input type="checkbox" id="checkedIhss"></th>
-        <th>RAP FIO Piso</th>
-        <th>RAP FIO <input type="checkbox" id="checkedRapFio"></th>
-        <th>ISR<input type="checkbox" id="checkedIsr"></th>
-        <th>Total deducciones</th>
-        <th>Total Quincena</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php
-    // Recorrer los datos y generar filas dinámicamente
-    $n = 1;
-    foreach ($data1 as $row) {
-        ?>
+    <table>
+        <thead>
         <tr>
-            <td><input data-value="serialNumber" type="text" value="<?php echo $n; ?>"></td>
-            <td><input data-value="spreadsheetCode" type="text" value="<?php echo $data2['codeFortnight']; ?><?php echo $row['employeeCode']; ?>"></td>
-            <td><input data-value="codeFortnight" type="text" value="<?php echo $data2['codeFortnight']; ?>"></td>
-            <td><input data-value="employeeCode" type="text" value="<?php echo $row['employeeCode']; ?>"></td>
-            <td><input data-value="profileName" type="text" value="<?php echo $row['profileNames']; ?> <?php echo $row['profileSurnames']; ?>"></td>
-            <td><input data-value="profileIdentity" type="text" value="<?php echo $row['profileIdentity']; ?>"></td>
-            <td><input data-value="bankName" type="text" value="<?php echo $row['bankName']; ?>"></td>
-            <td><input data-value="accountNumber" type="text" value="<?php echo $row['accountNumber']; ?>"></td>
-            <td><input data-value="monthlySalary" type="text" value="<?php echo $row['monthlySalary']; ?>"></td>
-            <td><input data-value="biweeklyBaseSalary" type="text" value="<?php echo $row['monthlySalary'] / 2; ?>"></td>
-
-            <td><input data-value="commissions" type="text" value="0.00"></td>
-            <td><input data-value="bonuses" type="text" value="0.00"></td>
-            <td><input data-value="otherIncome" type="text" value="0.00"></td>
-            <td><input data-value="totalRevenue" type="text" value="<?php echo $row['monthlySalary'] / 2; ?>"></td>
-            <td><input data-value="daysMissed" type="text" value="0.00"></td>
-            <td><input data-value="deductionLostDays" type="text" value="0.00"></td>
-            <td><input data-value="otherDeductions" type="text" value="0.00"></td>
-
-            <td><input data-value="ihss" type="text" value="0.00"></td>
-            <td><input data-value="rapFioPiso" type="text" value="11336.32"></td>
-            <td><input data-value="rapFio" type="text" value="0.00"></td>
-            <td><input key="<?php echo $row['profileIdentity']; ?>" data-value="isr" type="text" value="0.00"></td>
-            <td><input data-value="totalDeductions" type="text" value="0.00"></td>
-            <td><input data-value="totalFortnight" type="text" value="0.00"></td>
+            <th>No.</th>
+            <th>Código Planilla</th>
+            <th>Código Quincena</th>
+            <th>Código Colaborador</th>
+            <th>Nombre</th>
+            <th>No. DNI</th>
+            <th>Banco</th>
+            <th>Cuenta</th>
+            <th>Sueldo Mensual</th>
+            <th>Sueldo Base Quincenal</th>
+            <th>Comisiones</th>
+            <th>Bonificaciones</th>
+            <th>Otros Ingresos</th>
+            <th>Total Ingresos</th>
+            <th>Dias Faltados</th>
+            <th>Otras deducciones</th>
+            <th>IHSS</th>
+            <th>RAP FIO Piso</th>
+            <th>RAP FIO</th>
+            <th>ISR</th>
+            <th>Total deducciones</th>
+            <th>Total Quincena</th>
         </tr>
+        </thead>
+        <tbody>
         <?php
-        $n++;
-    }
-    ?>
-    </tbody>
-</table>
+        $n=1;
+        /** @var Permissions $data1 */
+        $employees = $data1['employees'];
+        for ($i=0; $i < count($employees); $i++) {
+            $details = $employees[$i]['details'];
+            $bankName = $details['bankName'] ?? '';
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        let jsonData = JSON.parse(localStorage.getItem('tableData')) || [];
-        const valueCalculateRapFio = 0.015;
-        const valueCalculateIhss = 561.14;
+            $commissions = $details['commissions'] ?? '';
 
-        const valueCalculateIsr = 20986.03;
-
-        const checkedIhss = document.getElementById("checkedIhss");
-        const checkedIsr = document.getElementById("checkedIsr");
-        const checkedRapFio = document.getElementById("checkedRapFio");
-
-        // Obtener la tabla y las filas del cuerpo
-        const table = document.querySelector("table");
-        if (!table) {
-            console.error("Table not found.");
-            return;
+            $employeeId = $employees[$i]['employeeId'];
+            debug($employees);
+            ?>
+            <tr>
+                <td>
+                    <?php echo $n; ?>
+                    <input type="hidden" name="employee[<?php echo $i; ?>][employeeId]" value="<?php echo $employeeId; ?>">
+                </td>
+                <td><?php echo $details['codeFortnight']; ?><?php echo $employees[$i]['employeeCode']; ?></td>
+                <td><?php echo $details['codeFortnight']; ?></td>
+                <td><?php echo $details['employeeCode']; ?></td>
+                <td><?php echo $employees[$i]['profileNames']; ?></td>
+                <td><?php echo $details['profileIdentity']; ?></td>
+                <td><input type="text" value="<?php echo $bankName; ?>" name="employee[<?php echo $i?>][bankName]"<?php echo $bankName; ?>></td>
+                <td><?php echo $details['accountNumber']; ?></td>
+                <td><?php echo $details['monthlySalary']; ?></td>
+                <td></td>
+                <td><input type="text" value="<?php echo $commissions; ?>" name="employee[<?php echo $i?>][commissions]"<?php echo $commissions; ?>></td>
+            </tr>
+            <?php
+            $n++;
         }
-
-        const rows = table.querySelectorAll("tbody tr");
-
-        const updateIhssValues = () => {
-            rows.forEach((row, index) => {
-                const ihssInput = row.querySelector("input[data-value='ihss']");
-
-                // Si el checkbox está marcado, asignar el valor de IHSS
-                if (checkedIhss.checked) {
-                    ihssInput.value = valueCalculateIhss.toFixed(2);
-                    jsonData[index].ihss = valueCalculateIhss; // Actualizar jsonData con el valor de IHSS
-                } else {
-                    ihssInput.value = 0; // Si no está marcado, dejar el valor en 0
-                    jsonData[index].ihss = 0; // Actualizar jsonData con 0
-                }
-
-                // Recalcular la fila para actualizar las deducciones totales
-                recalculateRow(index);
-            });
-
-            // Guardar el estado actualizado en localStorage
-            localStorage.setItem('tableData', JSON.stringify(jsonData));
-        };
-
-
-        const updateIsrValues = () => {
-            rows.forEach((row, index) => {
-                const isrInput = row.querySelector("input[data-value='isr']");
-                const inputKey = isrInput.getAttribute("key");
-                const profileIdentity ="0801-1999-10070";
-
-
-
-                // Si el checkbox está marcado, asignar el valor de ISR
-                if (checkedIsr.checked) {
-                    const calculatedIsr = (valueCalculateIsr / 9).toFixed(2);
-
-                    if (inputKey===profileIdentity){
-                        isrInput.value = calculatedIsr;
-                        console.log(inputKey)
-
-                    }
-
-
-
-                    //jsonData[index].isr = parseFloat(calculatedIsr); // Actualizar jsonData con el valor calculado todo el json
-                    // Buscar en el JSON el objeto con el profileIdentity correspondiente
-                    const targetIndex = jsonData.findIndex(item => item.profileIdentity === profileIdentity);
-                    if (targetIndex !== -1) {
-
-                        jsonData[targetIndex].isr = parseFloat(calculatedIsr); // Actualizar el valor de `isr` en el JSON
-                    }
-
-
-                } else {
-                    isrInput.value = 0; // Si no está marcado, dejar el valor en 0
-                    //jsonData[index].isr = 0; // Actualizar jsonData con 0 todo el json
-                    const targetIndex = jsonData.findIndex(item => item.profileIdentity === profileIdentity);
-                    if (targetIndex !== -1) {
-                        jsonData[targetIndex].isr = 0; // Actualizar el valor de `isr` en el JSON
-                    }
-
-
-                }
-
-                // Recalcular la fila para actualizar las deducciones totales
-                recalculateRow(index);
-            });
-
-            // Guardar el estado actualizado en localStorage
-            localStorage.setItem('tableData', JSON.stringify(jsonData));
-        };
-
-
-        checkedIhss.addEventListener("change", () => {
-            updateIhssValues();
-        });
-        checkedIsr.addEventListener("change", () => {
-            updateIsrValues();
-        });
-
-        // Función para recalcular valores específicos de `rapFio`
-        const updateRapFioValues = () => {
-            rows.forEach((row, index) => {
-                const rapFioInput = row.querySelector("input[data-value='rapFio']");
-                const monthlySalary = parseFloat(row.querySelector("input[data-value='monthlySalary']").value.trim()) || 0;
-                const rapFioPiso = parseFloat(row.querySelector("input[data-value='rapFioPiso']").value.trim()) || 0;
-
-                // Actualizar el valor de rapFio solo si el checkbox está marcado
-
-                const newRapFioValue = checkedRapFio.checked ? (monthlySalary - rapFioPiso) * valueCalculateRapFio : 0;
-
-                // Actualizar el input en la tabla y en el JSON local
-                rapFioInput.value = newRapFioValue.toFixed(2);
-                jsonData[index].rapFio = newRapFioValue;
-
-                // Recalcular la fila para actualizar las deducciones totales
-                recalculateRow(index);
-            });
-
-            // Guardar el estado actualizado en localStorage
-            localStorage.setItem('tableData', JSON.stringify(jsonData));
-        };
-
-        // Listener para cambios en el checkbox
-        checkedRapFio.addEventListener("change", () => {
-            updateRapFioValues();
-        });
-
-        // Función existente para recalcular valores de la fila
-        const recalculateRow = (rowIndex) => {
-            const data = jsonData[rowIndex];
-            const row = rows[rowIndex];
-
-            // Calcular total ingresos
-            data.totalRevenue = data.biweeklyBaseSalary + data.commissions + data.bonuses + data.otherIncome;
-            row.querySelector("input[data-value='totalRevenue']").value = data.totalRevenue.toFixed(2);
-
-            // Calcular deducción por días faltados
-            const dailySalary = data.monthlySalary / 30;
-            data.deductionLostDays = dailySalary * data.daysMissed;
-            row.querySelector("input[data-value='deductionLostDays']").value = data.deductionLostDays.toFixed(2);
-
-            // Calcular total deducciones
-            data.totalDeductions = data.deductionLostDays + data.otherDeductions + data.ihss + data.rapFio + data.isr;
-            row.querySelector("input[data-value='totalDeductions']").value = data.totalDeductions.toFixed(2);
-
-            // Calcular total quincena
-            data.totalFortnight = data.totalRevenue - data.totalDeductions;
-            row.querySelector("input[data-value='totalFortnight']").value = data.totalFortnight.toFixed(2);
-
-            // Guardar cambios en localStorage
-            localStorage.setItem('tableData', JSON.stringify(jsonData));
-            //console.log(jsonData)
-        };
-
-        // Agregar eventos de entrada a los inputs para recalcular en tiempo real
-        rows.forEach((row, index) => {
-            const inputs = row.querySelectorAll("input[data-value]");
-            inputs.forEach((input) => {
-                input.addEventListener("input", () => {
-                    // Actualizar el JSON con los cambios del input
-                    const inputName = input.getAttribute('data-value');
-                    const value = input.value.trim();
-
-                    jsonData[index][inputName] = isNaN(value) ? value : parseFloat(value) || 0;
-
-                    // Recalcular la fila y guardar cambios
-                    recalculateRow(index);
-                });
-            });
-        });
-
-
-
-        if (jsonData.length === 0) {
-            rows.forEach(row => {
-                const rowData = {
-                    serialNumber: row.querySelector("input[data-value='serialNumber']")?.value.trim(),
-                    spreadsheetCode: row.querySelector("input[data-value='spreadsheetCode']")?.value.trim(),
-                    codeFortnight: row.querySelector("input[data-value='codeFortnight']")?.value.trim(),
-                    employeeCode: row.querySelector("input[data-value='employeeCode']")?.value.trim(),
-                    profileName: row.querySelector("input[data-value='profileName']")?.value.trim(),
-                    profileIdentity: row.querySelector("input[data-value='profileIdentity']")?.value.trim(),
-                    bankName: row.querySelector("input[data-value='bankName']")?.value.trim(),
-                    accountNumber: row.querySelector("input[data-value='accountNumber']")?.value.trim(),
-                    monthlySalary: parseFloat(row.querySelector("input[data-value='monthlySalary']")?.value.trim()) || 0,
-                    biweeklyBaseSalary: parseFloat(row.querySelector("input[data-value='biweeklyBaseSalary']")?.value.trim()) || 0,
-                    commissions: parseFloat(row.querySelector("input[data-value='commissions']")?.value.trim()) || 0,
-                    bonuses: parseFloat(row.querySelector("input[data-value='bonuses']")?.value.trim()) || 0,
-                    otherIncome: parseFloat(row.querySelector("input[data-value='otherIncome']")?.value.trim()) || 0,
-                    totalRevenue: parseFloat(row.querySelector("input[data-value='totalRevenue']")?.value.trim()) || 0,
-                    daysMissed: parseFloat(row.querySelector("input[data-value='daysMissed']")?.value.trim()) || 0,
-                    deductionLostDays: parseFloat(row.querySelector("input[data-value='deductionLostDays']")?.value.trim()) || 0,
-                    otherDeductions: parseFloat(row.querySelector("input[data-value='otherDeductions']")?.value.trim()) || 0,
-                    ihss: parseFloat(row.querySelector("input[data-value='ihss']")?.value.trim()) || 0,
-                    rapFioPiso: parseFloat(row.querySelector("input[data-value='rapFioPiso']")?.value.trim()) || 0,
-                    rapFio: parseFloat(row.querySelector("input[data-value='rapFio']")?.value.trim()) || 0,
-                    isr: parseFloat(row.querySelector("input[data-value='isr']")?.value.trim()) || 0,
-                    totalDeductions: parseFloat(row.querySelector("input[data-value='totalDeductions']")?.value.trim()) || 0,
-                    totalFortnight: parseFloat(row.querySelector("input[data-value='totalFortnight']")?.value.trim()) || 0
-                };
-                jsonData.push(rowData);
-            });
-
-            localStorage.setItem('tableData', JSON.stringify(jsonData));
-        }
-    });
-
-</script>
-
+        ?>
+        </tbody>
+    </table>
+    <button>Save</button>
+</form>
 <!--== #FOOTER ==-->
 <?php adminFooter($data); ?>
 
+<!--VERIFICAR COMO GUARDAR EL BANCO Y OBTNERLO-->
