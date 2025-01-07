@@ -67,12 +67,14 @@ adminHeader($data); ?>
         $employees = $data1['employees'];
         for ($i=0; $i < count($employees); $i++) {
             $details = $employees[$i]['details'];
-            $bankName = $details['bankName'] ?? '';
+            $bankName = $details['bankName'] ?? $employees[$i]['bankName'];
+            $accountNumber = $details['accountNumber'] ?? $employees[$i]['accountNumber'];
+            $monthlySalary = $details['monthlySalary'] ?? $employees[$i]['monthlySalary'];
 
             $commissions = $details['commissions'] ?? '';
-
             $employeeId = $employees[$i]['employeeId'];
             debug($employees);
+            echo "bankName".$bankName;
             ?>
             <tr>
                 <td>
@@ -81,13 +83,13 @@ adminHeader($data); ?>
                 </td>
                 <td><?php echo $details['codeFortnight']; ?><?php echo $employees[$i]['employeeCode']; ?></td>
                 <td><?php echo $details['codeFortnight']; ?></td>
-                <td><?php echo $details['employeeCode']; ?></td>
+                <td><?php echo $employees[$i]['employeeCode']; ?></td>
                 <td><?php echo $employees[$i]['profileNames']; ?></td>
-                <td><?php echo $details['profileIdentity']; ?></td>
+                <td><?php echo $employees[$i]['profileIdentity']; ?></td>
                 <td><input type="text" value="<?php echo $bankName; ?>" name="employee[<?php echo $i?>][bankName]"<?php echo $bankName; ?>></td>
-                <td><?php echo $details['accountNumber']; ?></td>
-                <td><?php echo $details['monthlySalary']; ?></td>
-                <td></td>
+                <td><?php echo $accountNumber; ?></td>
+                <td><?php echo $monthlySalary; ?></td>
+                <td><?php echo $monthlySalary / 2; ?></td>
                 <td><input type="text" value="<?php echo $commissions; ?>" name="employee[<?php echo $i?>][commissions]"<?php echo $commissions; ?>></td>
             </tr>
             <?php

@@ -62,7 +62,7 @@ class Payrolls extends Controllers
     /**
      * @throws Exception
      */
-    public function details($id) : void
+    public function details($id): array
     {
 
         // Verifica si el ID es válido
@@ -81,31 +81,49 @@ class Payrolls extends Controllers
 
         $data["pageName"]     = "createPayroll";
         $data["payrollId"] = $id;
-
-        $employees = $this->model->getEmployees($id);
+        $payroll = $this->model->getPayroll($id);
+        $employees = $this->model->getEmployees();
 
         $detailPayroll = $this->model->detailPayrollId($id);
 
-        $defaultDetail = ['commissions' => 0];
+
+        $defaultDetail = ['codeFortnight'=>$payroll['codeFortnight'],'commissions' => 0];
         $data1 = ['payrollId' => $id];
 //        if (empty($payroll)) {
 //            return;
 //        }
-
+        $bankName="";
+        debug($detailPayroll);
         foreach ($employees as &$detail) {
             $detail['details'] = $defaultDetail;
 
             foreach ($detailPayroll as $employee) {
                 //debug($employee);
+                    if ($employee['bankName']===""){
+                        $bankName =$detail['bankName'];
+                    }else{
+                        $bankName =$employee['bankName'];
+                    }
+                if ($employee['accountNumber']===""){
+                    $accountNumber =$detail['accountNumber'];
+                }else{
+                    $accountNumber =$employee['accountNumber'];
+                }
+                if ($employee['biweeklyBaseSalary']===""){
+                    $monthlySalary =$detail['biweeklyBaseSalary'];
+                }else{
+                    $monthlySalary =$employee['biweeklyBaseSalary'];
+                }
+
                 if ($employee['employeeId'] === $detail['employeeId']) {
                     $detail['details'] = [
                         'codeFortnight' => $employee['codeFortnight'],
                         'employeeCode' => $detail['employeeCode'],
                         'profileNames' => $detail['profileNames'],
                         'profileIdentity' => $detail['profileIdentity'],
-                        'bankName' => $detail['bankName'],
-                        'accountNumber' => $detail['accountNumber'],
-                        'monthlySalary' => $detail['monthlySalary'],
+                        'bankName' => $bankName,
+                        'accountNumber' => $accountNumber,
+                        'monthlySalary' => $monthlySalary *2,
                         'commissions' => $employee['commissions']
                     ];
                     break;

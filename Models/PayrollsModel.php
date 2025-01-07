@@ -32,6 +32,25 @@ class PayrollsModel extends Mysql
     /**
      * @throws Exception
      */
+    public function getPayroll(int $id): array
+    {
+        $query = "SELECT * FROM payrolls WHERE payrollId =?";
+        $request = $this->find($query, [$id]);
+
+        if (empty($request)) {
+            return json_encode([
+                "status" => "ERROR_PAROLL_NOT_FOUND",
+                "message" => "No hay planillas para mostrar."
+            ]);
+        }
+
+
+        return $request;
+    }
+
+    /**
+     * @throws Exception
+     */
     public function getPayrollDetails($id): array
     {
         $query = "SELECT * FROM payrolls WHERE payrollId =?";
@@ -66,9 +85,10 @@ class PayrollsModel extends Mysql
         $request = $this->findAll($query, [$id]);
 
         if (empty($request)) {
-            return json_encode([
-                "status" => "ERROR_DETAILS_NOT_FOUND"
-            ]);
+            return [veriifcar return];
+//            return json_encode([
+//                "status" => "ERROR_DETAILS_NOT_FOUND"
+//            ]);
         }
         return $request;
     }
