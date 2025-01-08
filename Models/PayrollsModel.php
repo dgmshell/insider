@@ -85,7 +85,7 @@ class PayrollsModel extends Mysql
         $request = $this->findAll($query, [$id]);
 
         if (empty($request)) {
-            return [veriifcar return];
+            return [];
 //            return json_encode([
 //                "status" => "ERROR_DETAILS_NOT_FOUND"
 //            ]);

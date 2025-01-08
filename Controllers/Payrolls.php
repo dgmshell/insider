@@ -62,7 +62,7 @@ class Payrolls extends Controllers
     /**
      * @throws Exception
      */
-    public function details($id): array
+    public function details($id): void
     {
 
         // Verifica si el ID es válido
@@ -87,13 +87,25 @@ class Payrolls extends Controllers
         $detailPayroll = $this->model->detailPayrollId($id);
 
 
-        $defaultDetail = ['codeFortnight'=>$payroll['codeFortnight'],'commissions' => 0];
+        $defaultDetail = [
+            'codeFortnight' => $payroll['codeFortnight'],
+            'commissions' => 0,
+            'bonuses' => 0,
+            'otherIncome' => 0,
+            'daysAbsent' => 0,
+            'otherDeductions' => 0,
+            'ihss' => 0,
+            'rapFioPiso' => 0,
+            'rapFio' => 0,
+            'isr' => 0,
+        ];
+
         $data1 = ['payrollId' => $id];
 //        if (empty($payroll)) {
 //            return;
 //        }
         $bankName="";
-        debug($detailPayroll);
+        //debug($detailPayroll);
         foreach ($employees as &$detail) {
             $detail['details'] = $defaultDetail;
 
@@ -123,8 +135,16 @@ class Payrolls extends Controllers
                         'profileIdentity' => $detail['profileIdentity'],
                         'bankName' => $bankName,
                         'accountNumber' => $accountNumber,
-                        'monthlySalary' => $monthlySalary *2,
-                        'commissions' => $employee['commissions']
+                        'monthlySalary' => $monthlySalary,
+                        'commissions' => $employee['commissions'],
+                        'bonuses' => $employee['bonuses'],
+                        'otherIncome' => $employee['otherIncome'],
+                        'daysAbsent' => $employee['daysAbsent'],
+                        'otherDeductions' => $employee['otherDeductions'],
+                        'ihss' => $employee['ihss'],
+                        'rapFioPiso' => $employee['rapFioPiso'],
+                        'rapFio' => $employee['rapFio'],
+                        'isr' => $employee['isr']
                     ];
                     break;
                 }
