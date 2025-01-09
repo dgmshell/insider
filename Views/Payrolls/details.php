@@ -31,7 +31,7 @@ adminHeader($data); ?>
 
 <h1>Planilla Detallada</h1>
 <form action="" id="form-data">
-    <input type="text" name="roleId" value="<?php echo $data1['payrollId']; ?>">
+    <input type="text" name="payrollId" value="<?php echo $data1['payrollId']; ?>">
 
     <table>
         <thead>
@@ -58,6 +58,7 @@ adminHeader($data); ?>
             <th>ISR</th>
             <th>Total deducciones</th>
             <th>Total Quincena</th>
+            <th>Options</th>
         </tr>
         </thead>
         <tbody>
@@ -87,7 +88,8 @@ adminHeader($data); ?>
             $rapFio = $details['rapFio'];
             $isr = $details['isr'];
 
-
+            $totalDeductions = $deductionLostDays + $otherDeductions + $ihss + $rapFio + $isr;
+            $totalFortnight = $totalRevenue - $totalDeductions;
             $employeeId = $employees[$i]['employeeId'];
             //debug($details);
             //echo "commissions".$details['commissions'];
@@ -119,8 +121,8 @@ adminHeader($data); ?>
                 <td><input type="text" value="<?php echo $rapFioPiso; ?>" name="employee[<?php echo $i?>][rapFioPiso]"<?php echo $rapFioPiso; ?>></td>
                 <td><input type="text" value="<?php echo $rapFio; ?>" name="employee[<?php echo $i?>][rapFio]"<?php echo $rapFio; ?>></td>
                 <td><input type="text" value="<?php echo $isr; ?>" name="employee[<?php echo $i?>][isr]"<?php echo $isr; ?>></td>
-                <td>Total deducciones</td>
-                <td>Total quincena</td>
+                <td><?php echo $totalDeductions; ?></td>
+                <td><?php echo $totalFortnight; ?></td>
 
             </tr>
             <?php
