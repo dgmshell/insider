@@ -122,43 +122,50 @@ class PayrollsModel extends Mysql
         $this->beginTransaction();
         $insertedIds = [];
 
-        try {
-            $this->deletePayrollDetail($payrollId);
-            foreach ($payrolls as $details) {
+        // Asegúrate de que existe la clave 'employee' y es un array
+        if (!isset($payrolls['employee']) || !is_array($payrolls['employee'])) {
+            throw new InvalidArgumentException("The 'employee' key is missing or is not an array.");
+        }
 
-                $query = "INSERT INTO payroll_details (payrollId, employeeId,biweeklyBaseSalary, commissions, bonuses, otherIncome, totalIncome, daysAbsent, otherDeductions, ihss, rapfiop, rapfio, isr, totalSalary, note) 
+        $employeeDetails = $payrolls['employee'];
+
+        try {
+            // Elimina detalles anteriores
+            $this->deletePayrollDetail($payrollId);
+
+            // Itera sobre los detalles de empleados
+            foreach ($employeeDetails as $details) {
+                $query = "INSERT INTO payroll_details (payrollId, employeeId, bankName, accountNumber, biweeklyBaseSalary, commissions, bonuses, otherIncome, daysAbsent, otherDeductions, ihss, rapFioPiso, rapFio, isr, notes) 
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+                // Usa las claves correctas y convierte el salario mensual a salario quincenal
                 $setData = array(
-                    $payrollId,                  // payrollId: ID de la nómina
-                    $details["employeeId"],                    // employeeId: ID del empleado
-                    $details["biweeklyBaseSalary"],                // baseSalary: Salario base
-                    $details["commissions"],                 // commissions: Comisiones
-                    $details["bonuses"],                 // bonuses: Bonificaciones
-                    $details["otherIncome"],                 // otherIncome: Otros ingresos
-                    $details["totalRevenue"],                // totalIncome: Total de ingresos
-                    $details["daysMissed"],                    // daysAbsent: Días ausentes
-                    $details["otherDeductions"],                 // otherDeductions: Otras deducciones
-                    $details["ihss"],                 // ihss: Deducción de IHSS
-                    $details["rapFioPiso"],                 // rapfiop: Deducción RAP FIO Piso
-                    $details["rapFio"],                  // rapfio: Deducción RAP FIO
-                    $details["isr"],                 // isr: Deducción ISR
-                    $details["totalFortnight"],                // totalSalary: Salario total después de deducciones
-                    'Ausencias justificadas.' // note: Nota sobre la nómina o permisos
+                    $payrollId,
+                    $details["employeeId"],
+                    $details["bankName"],
+                    $details["accountNumber"],
+                    $details["monthlySalary"] / 2, // Salario mensual convertido a quincenal
+                    $details["commissions"],
+                    $details["bonuses"],
+                    $details["otherIncome"],
+                    $details["daysAbsent"],
+                    $details["otherDeductions"],
+                    $details["ihss"],
+                    $details["rapFioPiso"],
+                    $details["rapFio"],
+                    $details["isr"],
+                    $details["notes"]
                 );
-
 
                 $insertedId = $this->save($query, $setData);
                 $insertedIds[] = $insertedId;
             }
 
             $this->commitTransaction();
-            debug($insertedIds);
             return $insertedIds;
         } catch (Exception $e) {
-            // Revertir la transacción en caso de error
             $this->rollbackTransaction();
-            throw $e; // Lanzar la excepción original para conservar el stack trace
+            throw $e; // Relanzar la excepción original
         }
     }
 

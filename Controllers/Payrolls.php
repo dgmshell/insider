@@ -7,7 +7,15 @@ class Payrolls extends Controllers
     {
         parent::__construct();
         session_start();
-        getPermissions(MD_USERS);
+
+
+        if (!isset($_SESSION['userId']) || !isset($_SESSION['login'])) {
+
+            header('Location:'.router().'auth/login');
+            exit();
+        }
+        getPermissions(MD_PAYROLLS);
+
     }
 
     /**
@@ -15,12 +23,21 @@ class Payrolls extends Controllers
      */
     public function payrolls(): void
     {
-        $data["pageName"]     = "payrolls";
+        if (!isset($_SESSION['permissionsModule']['r']) || $_SESSION['permissionsModule']['r'] !== 1) {
+            header('Location:'.router().'dashboard');
+            die();
+        }
 
-//        debug($_SESSION['permissionsModule']);
+        $data["pageName"]     = "payrolls";
+         debug($_SESSION['permissionsModule']);
 //        debug($_SESSION['permissions']);
-        $payrolls = $this->model->getPayrolls();
-        $this->views->getViews($this, 'payrolls', $data,$payrolls);
+            $payrolls = $this->model->getPayrolls();
+            echo $_SESSION['userId'];
+            $this->views->getViews($this, 'payrolls', $data,$payrolls);
+
+
+
+
     }
 
     /**
@@ -98,6 +115,7 @@ class Payrolls extends Controllers
             'rapFioPiso' => 0,
             'rapFio' => 0,
             'isr' => 0,
+            'notes' => 0,
         ];
 
         $data1 = ['payrollId' => $id];
@@ -110,7 +128,7 @@ class Payrolls extends Controllers
             $detail['details'] = $defaultDetail;
 
             foreach ($detailPayroll as $employee) {
-                //debug($employee);
+
                     if ($employee['bankName']===""){
                         $bankName =$detail['bankName'];
                     }else{
@@ -124,11 +142,12 @@ class Payrolls extends Controllers
                 if ($employee['biweeklyBaseSalary']===""){
                     $monthlySalary =$detail['biweeklyBaseSalary'];
                 }else{
-                    $monthlySalary =$employee['biweeklyBaseSalary'];
+                    $monthlySalary =$employee['biweeklyBaseSalary']*2;
                 }
 
                 if ($employee['employeeId'] === $detail['employeeId']) {
                     $detail['details'] = [
+                        'employeeId' => $detail['employeeId'],
                         'codeFortnight' => $employee['codeFortnight'],
                         'employeeCode' => $detail['employeeCode'],
                         'profileNames' => $detail['profileNames'],
@@ -144,7 +163,8 @@ class Payrolls extends Controllers
                         'ihss' => $employee['ihss'],
                         'rapFioPiso' => $employee['rapFioPiso'],
                         'rapFio' => $employee['rapFio'],
-                        'isr' => $employee['isr']
+                        'isr' => $employee['isr'],
+                        'notes' => $employee['notes']
                     ];
                     break;
                 }
@@ -166,12 +186,14 @@ class Payrolls extends Controllers
 
     public function setDetails($id) : void
     {
+
+
+
         $data["pageName"]     = "setDetails";
 
-        $data = file_get_contents('php://input');
-        $json = json_decode($data, true);
+        $data = $_POST;
 
-        $request =   $this->model->setPayrollDetail($json,$id);
+        $request =   $this->model->setPayrollDetail($data,$id);
 
     }
 }

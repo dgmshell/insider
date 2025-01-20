@@ -5,8 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/src/css/adminlte.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/src/js/adminlte.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/src/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/src/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Dashboard/dash.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Dashboard/dashboardd.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Template/adminSidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/trebol.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/trebol.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Payrolls.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/PayrollsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/PayrollsModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Settings/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/Settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Dashboard/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Dashboard/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Payrolls/details.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Payrolls/details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Template/adminFooter.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/adminFooter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Template/adminHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/adminHeader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Template/adminNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/adminNav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Template/pageFooter.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/pageFooter.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,21 +58,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/insider&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/xampp/htdocs/insider/Assets/src/css",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\insider\Assets\src\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\insider\Assets\src\css" />
       <recent name="C:\xampp\htdocs\insider\Assets\css\libraries" />
     </key>
   </component>
@@ -91,7 +113,11 @@
       <workItem from="1736059105143" duration="32457000" />
       <workItem from="1736226106333" duration="7604000" />
       <workItem from="1736307177420" duration="7981000" />
-      <workItem from="1736404470571" duration="2146000" />
+      <workItem from="1736404470571" duration="2300000" />
+      <workItem from="1736562709627" duration="1791000" />
+      <workItem from="1736566718084" duration="18000" />
+      <workItem from="1736748049134" duration="84000" />
+      <workItem from="1737170794821" duration="41483000" />
     </task>
     <servers />
   </component>

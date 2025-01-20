@@ -13,3 +13,4 @@ const MD_PERMISSIONS=2;
 const MD_ROLES=3;
 const MD_USERS=4;
 const MD_DASHBOARD=5;
+const MD_PAYROLLS=6;

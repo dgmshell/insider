@@ -124,6 +124,12 @@ function adminFooter($data=""): void
     require_once $adminFooter;
 
 }
+function adminSidebar($data=""): void
+{
+    $adminSidebar = "Views/Template/adminSidebar.php";
+    require_once $adminSidebar;
+
+}
 
 function emptyFields(array $fields): array {
     $emptyFields = [];
