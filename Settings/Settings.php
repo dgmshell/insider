@@ -14,3 +14,5 @@ const MD_ROLES=3;
 const MD_USERS=4;
 const MD_DASHBOARD=5;
 const MD_PAYROLLS=6;
+const MD_ATTENDANCES=7;
+const MD_EMPLOYEES=8;

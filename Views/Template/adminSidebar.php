@@ -35,76 +35,108 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="../gallery.html" class="nav-link">
-                        <i class="fa-solid fa-chalkboard"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fa-solid fa-users"></i>
-                        <p>
-                            Usuarios
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="../../index.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Usuarios</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../../index2.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Roles</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="../gallery.html" class="nav-link">
-                        <i class="fa-regular fa-credit-card"></i>
-                        <p>
-                            Planilla
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="../gallery.html" class="nav-link">
-                        <i class="fa-solid fa-calendar-check"></i>
-                        <p>
-                            Asistencias
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fa-solid fa-user-tie"></i>
-                        <p>
-                            Empleados
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="../../index.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Empleados</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../../index2.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Horarios</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+
+
+                <?php
+
+                if (isset($_SESSION['permissions'][5]['r']) && $_SESSION['permissions'][5]['r'] === 1): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo router(); ?>dashboard" class="nav-link">
+                            <i class="fa-solid fa-chalkboard"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php
+                if (isset($_SESSION['permissions'][4]['r']) && $_SESSION['permissions'][4]['r'] === 1): ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-users"></i>
+                            <p>
+                                Usuarios
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+
+                            <?php
+                            if (isset($_SESSION['permissions'][4]['r']) && $_SESSION['permissions'][4]['r'] === 1): ?>
+                                <li class="nav-item">
+                                    <a href="<?php echo router(); ?>users" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Usuarios</p>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+
+                            <?php
+                            if (isset($_SESSION['permissions'][3]['r']) && $_SESSION['permissions'][3]['r'] === 1): ?>
+                                <li class="nav-item">
+                                    <a href="<?php echo router(); ?>roles" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Roles</p>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+                <?php
+                if (isset($_SESSION['permissions'][6]['r']) && $_SESSION['permissions'][6]['r'] === 1): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo router(); ?>payrolls" class="nav-link">
+                            <i class="fa-regular fa-credit-card"></i>
+                            <p>
+                                Planilla
+                            </p>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php
+                if (isset($_SESSION['permissions'][7]['r']) && $_SESSION['permissions'][7]['r'] === 1): ?>
+                    <li class="nav-item">
+                        <a href="<?php echo router(); ?>attendances" class="nav-link">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <p>
+                                Asistencias
+                            </p>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+
+                <?php
+                if (isset($_SESSION['permissions'][1]['r']) && $_SESSION['permissions'][1]['r'] === 1): ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <p>
+                                Empleados
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?php echo router(); ?>employees" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Empleados</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?php echo router(); ?>hours" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Horarios</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+
+
+
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>

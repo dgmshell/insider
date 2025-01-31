@@ -7,6 +7,9 @@
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/Payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Payrolls.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Settings/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/Settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Template/adminSidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/adminSidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Users/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Users/users.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,19 +43,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/xampp/htdocs/tld",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/tld&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\insider\Assets\src\css" />
@@ -102,6 +105,7 @@
       <workItem from="1737170794821" duration="41483000" />
       <workItem from="1737660890974" duration="1274000" />
       <workItem from="1737732890732" duration="1221000" />
+      <workItem from="1738334870195" duration="11433000" />
     </task>
     <servers />
   </component>
