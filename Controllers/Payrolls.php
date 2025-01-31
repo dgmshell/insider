@@ -23,10 +23,10 @@ class Payrolls extends Controllers
      */
     public function payrolls(): void
     {
-        if (!isset($_SESSION['permissionsModule']['r']) || $_SESSION['permissionsModule']['r'] !== 1) {
-            header('Location:'.router().'dashboard');
-            die();
-        }
+//        if (!isset($_SESSION['permissionsModule']['r']) || $_SESSION['permissionsModule']['r'] !== 1) {
+//            header('Location:'.router().'dashboard');
+//            die();
+//        }
 
         $data["pageName"]     = "payrolls";
          debug($_SESSION['permissionsModule']);
