@@ -3,17 +3,7 @@
 $users=$data1;
 
 ?>
-    <a href="<?php echo router(); ?>users/new">New User</a><br>
 
-<?php
-    foreach($users as $user){
-
-?>
-        <a href="<?php echo router(); ?>permissions/assign/<?php echo $user['userId']; ?>"><?php echo $user['profileEmail']; ?></a>
-        <br>
-        <?php
-    }
-?>
 
 <!-- Admin Header -->
 <?php adminHeader($data); ?>

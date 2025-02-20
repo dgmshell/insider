@@ -1,19 +1,9 @@
 <?php
 /** @var Users $data1 */
-$users=$data1;
+$roles=$data1;
 
 ?>
-    <a href="<?php echo router(); ?>users/new">New User</a><br>
 
-<?php
-foreach($users as $user){
-
-    ?>
-    <a href="<?php echo router(); ?>permissions/assign/<?php echo $user['userId']; ?>"><?php echo $user['profileEmail']; ?></a>
-    <br>
-    <?php
-}
-?>
 
     <!-- Admin Header -->
 <?php adminHeader($data); ?>
@@ -56,19 +46,19 @@ foreach($users as $user){
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">Identity</th>
-                            <th scope="col">User Name</th>
-                            <th scope="col">User Email</th>
-                            <th scope="col">Profile Phone</th>
+                            <th scope="col">Role Name</th>
+                            <th scope="col">Role Description</th>
+                            <th scope="col">Role Status</th>
+                            <th scope="col">Options</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($users as $user): ?>
+                        <?php foreach ($roles as $role): ?>
                             <tr>
-                                <td><?php echo $user["profileIdentity"]?></td>
-                                <th scope="row"><?php echo $user["userName"]?></th>
-                                <td><?php echo $user["profileEmail"]?></td>
-                                <td><?php echo $user["profilePhone"]?></td>
+                                <td><?php echo $role["roleName"]?></td>
+                                <th scope="row"><?php echo $role["roleDescription"]?></th>
+                                <td><?php echo $role["roleStatus"]?></td>
+                                <td><a href="<?php echo router(); ?>permissions/assign/<?php echo $role['roleId']; ?>">Permisos</a><a href="#">Edit</a><a href="#">Delete</a></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>

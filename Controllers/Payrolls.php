@@ -6,9 +6,6 @@ class Payrolls extends Controllers
     public function __construct()
     {
         parent::__construct();
-        session_start();
-
-
         if (!isset($_SESSION['userId']) || !isset($_SESSION['login'])) {
 
             header('Location:'.router().'auth/login');
@@ -194,6 +191,6 @@ class Payrolls extends Controllers
         $data = $_POST;
 
         $request =   $this->model->setPayrollDetail($data,$id);
-
+        debug($request);
     }
 }

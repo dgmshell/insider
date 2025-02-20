@@ -6,9 +6,6 @@ class Dashboard extends Controllers
     public function __construct()
     {
         parent::__construct();
-        session_start();
-
-
         if (!isset($_SESSION['userId']) || !isset($_SESSION['login'])) {
 
             header('Location:'.router().'auth/login');

@@ -6,7 +6,6 @@ class Auth extends Controllers
     public function __construct()
     {
         parent::__construct();
-        session_start();
         if (isset($_SESSION['login'])) {
             header('Location:'.router().'dashboard');
             exit();
@@ -115,7 +114,7 @@ class Auth extends Controllers
 
     public function signup(): void{
         $data["pageName"]      = "signup";
-        $this->views->getViews($this, 'signup', $data);
+        $this->views->getViews($this, 'signup', $data,$arrayData);
 
     }
 }

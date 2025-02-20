@@ -16,10 +16,10 @@ class Roles extends Controllers
     {
         $data["pageName"]     = "roles";
 
-        //$users = $this->model->getUsers();
-        debug($_SESSION['permissions']);
-        debug($_SESSION['permissionsModule']);
-        $this->views->getViews($this, 'roles', $data);
+        $roles = $this->model->getRoles();
+        //debug($_SESSION['permissions']);
+        //debug($_SESSION['permissionsModule']);
+        $this->views->getViews($this, 'roles', $data,$roles);
     }
 
     /**

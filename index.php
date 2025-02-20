@@ -1,5 +1,5 @@
 <?php
-//session_start(); // Inicia la sesión
+session_start(); // Inicia la sesión
 //session_destroy();
 
 // Carga configuraciones y helpers
