@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Views/Roles/roles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Payrolls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Settings/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/Settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Template/adminSidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/adminSidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Users/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Users/users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/js/helpers/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/js/helpers/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Roles.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Roles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/home.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,19 +43,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/tld&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/xampp/htdocs/python",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\insider\Assets\src\css" />
@@ -68,8 +70,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
-        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PS-243.24978.50" />
+        <option value="bundled-php-predefined-a98d8de5180a-fbeb0b58ac0f-com.jetbrains.php.sharedIndexes-PS-243.24978.50" />
       </set>
     </attachedChunks>
   </component>
@@ -106,6 +108,9 @@
       <workItem from="1737660890974" duration="1274000" />
       <workItem from="1737732890732" duration="1221000" />
       <workItem from="1738334870195" duration="11433000" />
+      <workItem from="1739689374754" duration="1046000" />
+      <workItem from="1739732539971" duration="6476000" />
+      <workItem from="1739853420093" duration="3880000" />
     </task>
     <servers />
   </component>

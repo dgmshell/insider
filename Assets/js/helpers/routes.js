@@ -9,6 +9,7 @@ class Routers {
                         return `${router}auth/setSignup`;
                     case "resetPassword":
                         return `${router}auth/resetPassword`;
+
                     default:
                         throw new Error(`El método '${method}' no es válido para la ruta 'auth'.`);
                 }
@@ -16,7 +17,6 @@ class Routers {
 
             case "users":
                 return `${router}users`;
-
             default:
                 throw new Error("Debe especificar una ruta válida.");
         }
