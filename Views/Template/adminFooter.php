@@ -19,6 +19,7 @@
 <!-- AdminLTE App -->
 <script src="<?php echo files(); ?>src/js/adminlte.min.js"></script>
 <!-- Toast -->
+<!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
 <script src="<?php echo files() ?>js/libraries/toast.js"></script>
 <script type="module" src="<?php echo files() ?>js/helpers/http.js"></script>
 </body>

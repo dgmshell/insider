@@ -57,6 +57,7 @@ class Payrolls extends Controllers
 
 
         $data["pageName"]     = "createPayroll";
+
         $data["payrollId"] = $id;
 
 
@@ -72,6 +73,113 @@ class Payrolls extends Controllers
         //debug($employees);
         //debug($payroll);
         $this->views->getViews($this, 'create', $data,$payroll,$employees);
+    }
+    public function overview($id): void
+    {
+
+        // Verifica si el ID es válido
+        if (!validateId($id)) {
+            handleError();
+            exit();
+        }
+
+        $verifiedId = verifyId('payrolls', 'payrollId', $id);
+        if (empty($verifiedId['total']) || $verifiedId['total'] == 0) {
+            handleError();
+            echo "id no encontrado";
+            exit();
+        }
+
+
+        $data["pageName"]     = "createPayroll";
+        $data["pageTitle"]     = "Detalles de la planilla";
+        $data["tagTitle"]     = "Overview";
+
+        $data["payrollId"] = $id;
+        $payroll = $this->model->getPayroll($id);
+        $employees = $this->model->getEmployees();
+
+        $detailPayroll = $this->model->detailPayrollId($id);
+
+
+        $defaultDetail = [
+            'codeFortnight' => $payroll['codeFortnight'],
+            'commissions' => 0,
+            'bonuses' => 0,
+            'otherIncome' => 0,
+            'daysAbsent' => 0,
+            'otherDeductions' => 0,
+            'ihss' => 0,
+            'rapFioPiso' => 0,
+            'rapFio' => 0,
+            'isr' => 0,
+            'notes' => 0,
+        ];
+
+        $data1 = ['payrollId' => $id];
+//        if (empty($payroll)) {
+//            return;
+//        }
+        $bankName="";
+        //debug($detailPayroll);
+        foreach ($employees as &$detail) {
+            $detail['details'] = $defaultDetail;
+
+            foreach ($detailPayroll as $employee) {
+
+                if ($employee['bankName']===""){
+                    $bankName =$detail['bankName'];
+                }else{
+                    $bankName =$employee['bankName'];
+                }
+                if ($employee['accountNumber']===""){
+                    $accountNumber =$detail['accountNumber'];
+                }else{
+                    $accountNumber =$employee['accountNumber'];
+                }
+                if ($employee['biweeklyBaseSalary']===""){
+                    $monthlySalary =$detail['biweeklyBaseSalary'];
+                }else{
+                    $monthlySalary =$employee['biweeklyBaseSalary']*2;
+                }
+
+                if ($employee['employeeId'] === $detail['employeeId']) {
+                    $detail['details'] = [
+                        'employeeId' => $detail['employeeId'],
+                        'codeFortnight' => $employee['codeFortnight'],
+                        'employeeCode' => $detail['employeeCode'],
+                        'profileNames' => $detail['profileNames'],
+                        'profileIdentity' => $detail['profileIdentity'],
+                        'bankName' => $bankName,
+                        'accountNumber' => $accountNumber,
+                        'monthlySalary' => $monthlySalary,
+                        'commissions' => $employee['commissions'],
+                        'bonuses' => $employee['bonuses'],
+                        'otherIncome' => $employee['otherIncome'],
+                        'daysAbsent' => $employee['daysAbsent'],
+                        'otherDeductions' => $employee['otherDeductions'],
+                        'ihss' => $employee['ihss'],
+                        'rapFioPiso' => $employee['rapFioPiso'],
+                        'rapFio' => $employee['rapFio'],
+                        'isr' => $employee['isr'],
+                        'notes' => $employee['notes']
+                    ];
+                    break;
+                }
+            }
+        }
+
+        $data1['employees'] = $employees;
+
+        $data["userId"] = $id;
+        //debug($data1['employees']);
+
+
+
+
+        //debug($employees);
+        //debug($payroll);
+        $this->views->getViews($this, 'overview', $data,$data1);
     }
     /**
      * @throws Exception

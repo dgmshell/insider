@@ -15,7 +15,7 @@ class Users extends Controllers
     public function users(): void
     {
         $data["pageName"]     = "users";
-
+        $data["pageTitle"]     = "Usuarios";
         $users = $this->model->getUsers();
         //debug($_SESSION['permissions']);
         //debug($_SESSION['permissionsModule']);
