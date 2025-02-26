@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Views/Payrolls/overview.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/src/css/adminlte.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Payrolls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Auth/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Template/adminFooter.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/adminFooter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Payrolls/overview.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Payrolls/overview.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

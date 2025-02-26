@@ -5,6 +5,11 @@
 
 <!-- Admin Sidebar -->
 <?php adminSidebar($data); ?>
+<?php
+/** @var Users $data1 */
+$payroll=$data1;
+
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -12,7 +17,8 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Dashboard</h1>
+                    <h1>Overview</h1>
+
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -25,7 +31,6 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Title</h3>
-
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -36,7 +41,23 @@
                 </div>
             </div>
             <div class="card-body">
-                Start creating your amazing application!
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">Identity</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">User Email</th>
+                        <th scope="col">Profile Phone</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($payroll as $row): ?>
+                        <tr>
+                            <td><?php debug($row);?>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
