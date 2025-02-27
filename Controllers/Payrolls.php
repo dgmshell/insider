@@ -289,16 +289,32 @@ class Payrolls extends Controllers
         $this->views->getViews($this, 'details', $data,$data1);
     }
 
-    public function setDetails($id) : void
+    public function updatePayroll() : void
     {
 
 
 
-        $data["pageName"]     = "setDetails";
+        $payroll = $_POST;
+        $payrollId = $payroll['payrollId'];
+        //($payroll);
+        $request =   $this->model->setPayrollDetail($payroll,$payrollId);
+        $response = json_decode($request, true);
 
-        $data = $_POST;
+        switch ($response["status"]) {
+            case "SUCCESS_PAYROLL_UPDATE":
 
-        $request =   $this->model->setPayrollDetail($data,$id);
-        debug($request);
+                    echo json_encode(array(
+                        'status' => 'success',
+                        'message'=> 'Planilla actualizada...',
+                        'redirect'=>true));
+                break;
+            default:
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Error desconocido.',
+                    'redirect' => false
+                ]);
+                break;
+        }
     }
 }

@@ -11,7 +11,7 @@
 <div class="main">
     <div class="col-md-6 col-sm-12">
         <div class="login-form">
-            <form class="form-data " data-destination="auth" calling-method="setLogin" data-type="json">
+            <form class="form-data" data-destination="auth" calling-method="setLogin" data-type="json">
                 <div class="form-group">
                     <label>Usuario o correo</label>
                     <input name="userEmail" id="userEmail" type="text" class="form-control form-control-db" placeholder="Usuario o correo">

@@ -17,6 +17,10 @@ class Routers {
 
             case "users":
                 return `${router}users`;
+
+            case "payrolls":
+                return `${router}payrolls/updatePayroll`;
+
             default:
                 throw new Error("Debe especificar una ruta válida.");
         }

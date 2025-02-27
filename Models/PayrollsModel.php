@@ -117,10 +117,10 @@ class PayrollsModel extends Mysql
         }
         return $request;
     }
-    public function setPayrollDetail(array $payrolls, int $payrollId): array
+    public function setPayrollDetail(array $payrolls, int $payrollId): false|string
     {
         $this->beginTransaction();
-        $insertedIds = [];
+        //$insertedIds = [];
 
         // Asegúrate de que existe la clave 'employee' y es un array
         if (!isset($payrolls['employee']) || !is_array($payrolls['employee'])) {
@@ -158,11 +158,14 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 );
 
                 $insertedId = $this->save($query, $setData);
-                $insertedIds[] = $insertedId;
+                //$insertedIds[] = $insertedId;
             }
 
             $this->commitTransaction();
-            return $insertedIds;
+            // Retornar JSON de éxito
+            return json_encode([
+                "status" => "SUCCESS_PAYROLL_UPDATE"
+            ]);
         } catch (Exception $e) {
             $this->rollbackTransaction();
             throw $e; // Relanzar la excepción original

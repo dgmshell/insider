@@ -28,7 +28,7 @@ $payroll=$data1;
     <section class="content">
 
         <!-- Default box -->
-        <form action="#" id="create-details">
+        <form action="#" class="form-data" id="create-details" data-destination="payrolls" calling-method="updatePayroll" data-type="">
         <div class="card">
 
             <div class="card-header">
@@ -43,7 +43,6 @@ $payroll=$data1;
                 </div>
             </div>
             <div class="card-body scrol-x tree-wrapper">
-                <form action="#" id="create-details">
                     <input type="hidden" name="payrollId" value="<?php echo $payroll['payrollId']; ?>">
                     <table class="table db-table table-bordered">
                         <thead>
@@ -109,34 +108,34 @@ $payroll=$data1;
                             <tr>
                                 <td>
                                     <?php echo $n; ?>
-                                    <input type="hidden" value="<?php echo $employeeId; ?>" name="employee[<?php echo $i?>][employeeId]"<?php echo $employeeId; ?>>
+                                    <input type="hidden" value="<?php echo $employeeId; ?>" name="employee[<?php echo $i?>][employeeId]">
                                 </td>
                                 <td><?php echo $details['codeFortnight']; ?><?php echo $employees[$i]['employeeCode']; ?></td>
                                 <td><?php echo $details['codeFortnight']; ?></td>
                                 <td><?php echo $employees[$i]['employeeCode']; ?></td>
                                 <td><?php echo $employees[$i]['profileNames']; ?></td>
                                 <td><?php echo $employees[$i]['profileIdentity']; ?></td>
-                                <td><input type="text" class="form-control form-control-db" value="<?php echo $bankName; ?>" name="employee[<?php echo $i?>][bankName]"<?php echo $bankName; ?>></td>
-                                <td><input type="text" class="form-control form-control-db" value="<?php echo $accountNumber; ?>" name="employee[<?php echo $i?>][accountNumber]"<?php echo $accountNumber; ?>></td>
-                                <td><input class="monthly-salary form-control form-control-db" type="text" value="<?php echo $monthlySalary; ?>" name="employee[<?php echo $i?>][monthlySalary]"<?php echo $monthlySalary; ?>></td>
+                                <td><input type="text" class="form-control form-control-db" value="<?php echo $bankName; ?>" name="employee[<?php echo $i?>][bankName]"></td>
+                                <td><input type="text" class="form-control form-control-db" value="<?php echo $accountNumber; ?>" name="employee[<?php echo $i?>][accountNumber]"></td>
+                                <td><input class="monthly-salary form-control form-control-db" type="text" value="<?php echo $monthlySalary; ?>" name="employee[<?php echo $i?>][monthlySalary]"></td>
                                 <td><input class="biweekly-base- form-control form-control-db" type="text" value="<?php echo $biweeklyBaseSalary; ?>"></td>
-                                <td><input class="commissions form-control form-control-db" type="text" value="<?php echo $commissions; ?>" name="employee[<?php echo $i?>][commissions]"<?php echo $commissions; ?>></td>
-                                <td><input class="bonuses form-control form-control-db" type="text" value="<?php echo $bonuses; ?>" name="employee[<?php echo $i?>][bonuses]"<?php echo $bonuses; ?>></td>
+                                <td><input class="commissions form-control form-control-db" type="text" value="<?php echo $commissions; ?>" name="employee[<?php echo $i?>][commissions]"></td>
+                                <td><input class="bonuses form-control form-control-db" type="text" value="<?php echo $bonuses; ?>" name="employee[<?php echo $i?>][bonuses]"></td>
 
-                                <td><input class="other-income form-control form-control-db" type="text" value="<?php echo $otherIncome; ?>" name="employee[<?php echo $i?>][otherIncome]"<?php echo $otherIncome; ?>></td>
+                                <td><input class="other-income form-control form-control-db" type="text" value="<?php echo $otherIncome; ?>" name="employee[<?php echo $i?>][otherIncome]"></td>
                                 <td><input class="total-revenue form-control form-control-db" type="text" value="<?php echo $totalRevenue; ?>"></td>
-                                <td><input class="days-absent form-control form-control-db" type="text" value="<?php echo $daysAbsent; ?>" name="employee[<?php echo $i?>][daysAbsent]"<?php echo $daysAbsent; ?>></td>
+                                <td><input class="days-absent form-control form-control-db" type="text" value="<?php echo $daysAbsent; ?>" name="employee[<?php echo $i?>][daysAbsent]"></td>
                                 <td><input class="deduction-lost-days form-control form-control-db" type="text" value="<?php echo $deductionLostDays; ?>"></td>
-                                <td><input class="other-deductions form-control form-control-db" type="text" value="<?php echo $otherDeductions; ?>" name="employee[<?php echo $i?>][otherDeductions]"<?php echo $otherDeductions; ?>></td>
+                                <td><input class="other-deductions form-control form-control-db" type="text" value="<?php echo $otherDeductions; ?>" name="employee[<?php echo $i?>][otherDeductions]"></td>
 
-                                <td><input class="ihss form-control form-control-db" type="text" value="<?php echo $ihss; ?>" name="employee[<?php echo $i?>][ihss]"<?php echo $ihss; ?>></td>
+                                <td><input class="ihss form-control form-control-db" type="text" value="<?php echo $ihss; ?>" name="employee[<?php echo $i?>][ihss]"></td>
 
-                                <td><input class="rap-fio-piso form-control form-control-db" type="text" value="<?php echo $rapFioPiso; ?>" name="employee[<?php echo $i?>][rapFioPiso]"<?php echo $rapFioPiso; ?>></td>
-                                <td><input class="rap-fio form-control form-control-db" type="text" value="<?php echo $rapFio; ?>" name="employee[<?php echo $i?>][rapFio]"<?php echo $rapFio; ?>></td>
-                                <td><input class="isr form-control form-control-db" type="text" value="<?php echo $isr; ?>" name="employee[<?php echo $i?>][isr]"<?php echo $isr; ?>></td>
+                                <td><input class="rap-fio-piso form-control form-control-db" type="text" value="<?php echo $rapFioPiso; ?>" name="employee[<?php echo $i?>][rapFioPiso]"></td>
+                                <td><input class="rap-fio form-control form-control-db" type="text" value="<?php echo $rapFio; ?>" name="employee[<?php echo $i?>][rapFio]"></td>
+                                <td><input class="isr form-control form-control-db" type="text" value="<?php echo $isr; ?>" name="employee[<?php echo $i?>][isr]"></td>
                                 <td><input class="total-deductions form-control form-control-db" type="text" value="<?php echo $totalDeductions; ?>"></td>
                                 <td><input class="total-fort-night form-control form-control-db" type="text" value="<?php echo $totalFortnight; ?>"></td>
-                                <td><input class="notes form-control form-control-db" type="text" value="<?php echo $notes; ?>" name="employee[<?php echo $i?>][notes]"<?php echo $notes; ?>></td>
+                                <td><input class="notes form-control form-control-db" type="text" value="<?php echo $notes; ?>" name="employee[<?php echo $i?>][notes]"></td>
                             </tr>
                             <?php
                             $n++;
@@ -145,12 +144,11 @@ $payroll=$data1;
                         </tbody>
 
                     </table>
-                </form>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
                 <div class="buttons-payroll">
-                    <button id="send-payroll" class="btn btn-success btn-block">Guardar Planilla</button>
+                    <button type="submit" id="send-payroll" class="btn btn-success btn-block">Guardar Planilla</button>
                 </div>
             </div>
 
@@ -250,8 +248,9 @@ $payroll=$data1;
     });
 
 </script>
-<script>
 
+<script>
+    /*
     const payrollId = <?= json_encode($data["payrollId"]) ?>;
     const form = document.getElementById('create-details');
 
@@ -282,5 +281,5 @@ $payroll=$data1;
                 // Opcional: Mostrar un mensaje de error en la interfaz
             });
     });
-
+*/
 </script>
