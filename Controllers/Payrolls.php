@@ -26,10 +26,10 @@ class Payrolls extends Controllers
 //        }
 
         $data["pageName"]     = "payrolls";
-         debug($_SESSION['permissionsModule']);
+        // debug($_SESSION['permissionsModule']);
 //        debug($_SESSION['permissions']);
             $payrolls = $this->model->getPayrolls();
-            echo $_SESSION['userId'];
+            //echo $_SESSION['userId'];
             $this->views->getViews($this, 'payrolls', $data,$payrolls);
 
 
