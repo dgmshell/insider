@@ -130,6 +130,29 @@ function adminSidebar($data=""): void
     require_once $adminSidebar;
 
 }
+//PAGE
+function pageHeader($data=""): void
+{
+    $pageHeader = "Views/Template/pageHeader.php";
+    require_once $pageHeader;
+}
+function pageNav($data=""): void
+{
+    $pageNav = "Views/Template/pageNav.php";
+    require_once $pageNav;
+}
+function pageFooter($data=""): void
+{
+    $pageFooter = "Views/Template/pageFooter.php";
+    require_once $pageFooter;
+
+}
+function pageSidebar($data=""): void
+{
+    $pageSidebar = "Views/Template/pageSidebar.php";
+    require_once $pageSidebar;
+
+}
 
 function emptyFields(array $fields): array {
     $emptyFields = [];

@@ -5,10 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Payrolls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Payrolls/payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Payrolls/payrolls.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/css/adminlte.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/css/adminlte.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/AdminLTEFullLogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/AdminLTELogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/avatar2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/avatar3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/avatar4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/avatar5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/boxed-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/boxed-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/credit/american-express.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/credit/cirrus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/credit/mastercard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/credit/paypal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/credit/paypal2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/credit/visa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/default-150x150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/photo1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/photo2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/photo3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/photo4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/prod-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/prod-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/prod-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/prod-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/prod-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/user1-128x128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/user2-160x160.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/user3-128x128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/user4-128x128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/user5-128x128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/user6-128x128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/user7-128x128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/images/user8-128x128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/js/adminlte.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Settings/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/Settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Template/pageFooter.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/pageFooter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Template/pageHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/pageHeader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Template/pageNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Template/pageNav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantilla/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +113,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PS-243.24978.50" />
-        <option value="bundled-php-predefined-a98d8de5180a-fbeb0b58ac0f-com.jetbrains.php.sharedIndexes-PS-243.24978.50" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
+        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
       </set>
     </attachedChunks>
   </component>
@@ -116,6 +160,7 @@
       <workItem from="1740371977610" duration="3709000" />
       <workItem from="1740549378633" duration="8083000" />
       <workItem from="1740627586885" duration="5576000" />
+      <workItem from="1741106653079" duration="87000" />
     </task>
     <servers />
   </component>
@@ -132,16 +177,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/Settings/Settings.php</url>
-          <line>4</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
