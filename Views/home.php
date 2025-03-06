@@ -2,7 +2,7 @@
 <?php pageHeader($data); ?>
 <!-- Admin Nav -->
 <?php pageNav($data); ?>
-
+<h1>Hi</h1>
 <!-- Page Preloder -->
 <div id="preloder">
     <div class="loader"></div>
