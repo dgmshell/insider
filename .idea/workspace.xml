@@ -6,6 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/Assets/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/src/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/Payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Payrolls.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Settings/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/Settings/Settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Nsf/nsf.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Nsf/nsf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantilla" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantilla/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla/index.html" afterDir="false" />
+>>>>>>> 962100e050fbe83f6454ed50febaa704e3f48f4f
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +124,10 @@
       <workItem from="1740549378633" duration="8083000" />
       <workItem from="1740627586885" duration="5576000" />
       <workItem from="1741106653079" duration="87000" />
+<<<<<<< HEAD
+=======
+      <workItem from="1741195566289" duration="11615000" />
+>>>>>>> 962100e050fbe83f6454ed50febaa704e3f48f4f
     </task>
     <servers />
   </component>
@@ -130,16 +144,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/Settings/Settings.php</url>
-          <line>4</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
