@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6882d71c-c13b-40ea-b182-b9772bed20a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/Payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/Payrolls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Payrolls/payrolls.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Payrolls/payrolls.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +66,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PS-243.24978.50" />
-        <option value="bundled-php-predefined-a98d8de5180a-fbeb0b58ac0f-com.jetbrains.php.sharedIndexes-PS-243.24978.50" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
+        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
       </set>
     </attachedChunks>
   </component>
@@ -116,6 +113,7 @@
       <workItem from="1740371977610" duration="3709000" />
       <workItem from="1740549378633" duration="8083000" />
       <workItem from="1740627586885" duration="5576000" />
+      <workItem from="1741106653079" duration="87000" />
     </task>
     <servers />
   </component>
