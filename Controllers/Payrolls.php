@@ -33,6 +33,8 @@ class Payrolls extends Controllers
             $this->views->getViews($this, 'payrolls', $data,$payrolls);
 
 
+
+
     }
 
     /**
