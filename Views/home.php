@@ -11,7 +11,7 @@
 <!-- Header section start -->
 <header class="header-area">
     <a href="home.html" class="logo-area">
-        <img src="<?php echo files(); ?>src/img/logo.png" alt="">
+        <img src="<?php echo files(); ?>src/img/brand-logo.png" alt="">
     </a>
     <div class="nav-switch">
         <i class="fa fa-bars"></i>
@@ -36,35 +36,35 @@
     <div class="left-bar">
         <div class="left-bar-content">
             <div class="social-links">
-                <a href="#"><i class="fa fa-pinterest"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a target="_blank" href="https://pinterest.com/alterasolutioninc"><i class="fa fa-pinterest"></i></a>
+                <a target="_blank" href="https://linkedin.com/alterasolutioninc"><i class="fa fa-linkedin"></i></a>
+                <a target="_blank" href="https://instagram.com/alterasolutioninc"><i class="fa fa-instagram"></i></a>
+                <a target="_blank" href="https://facebook.com/profile.php?id=61573404014787"><i class="fa fa-facebook"></i></a>
+                <a target="_blank" href="https://twitter.com/alterasolutioninc"><i class="fa fa-twitter"></i></a>
             </div>
         </div>
     </div>
     <!-- hero slider area -->
     <div class="hero-slider">
-        <div class="hero-slide-item set-bg" data-setbg="<?php echo files(); ?>src/img/bg.jpg">
+        <div class="hero-slide-item set-bg" data-setbg="<?php echo files(); ?>src/img/hero-one.jpg">
             <div class="slide-inner">
                 <div class="slide-content">
-                    <h2>Minimalistic <br>Architecture <br> and more</h2>
-                    <a href="#" class="site-btn sb-light">See Project</a>
+                    <h2>Turn Every <br>Interaction into <br> Opportunity</h2>
+                    <a href="#" class="site-btn sb-light">Contact us now</a>
                 </div>
             </div>
         </div>
-        <div class="hero-slide-item set-bg" data-setbg="<?php echo files(); ?>src/img/bg.jpg">
+        <div class="hero-slide-item set-bg" data-setbg="<?php echo files(); ?>src/img/hero-two.jpg">
             <div class="slide-inner">
                 <div class="slide-content">
-                    <h2>Minimalistic <br>Architecture <br> and more</h2>
-                    <a href="#" class="site-btn sb-light">See Project</a>
+                    <h2>Boost Your Business <br>with Every Interaction <br> and Opportunity</h2>
+                    <a href="#" class="site-btn sb-light">Contact us now</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="slide-num-holder" id="snh-1"></div>
-    <div class="hero-right-text">architecture</div>
+    <div class="hero-right-text">Business</div>
 </section>
 <!-- Hero section end -->
 
@@ -74,9 +74,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-7 intro-text mb-5 mb-lg-0">
-                <h2 class="sp-title">We are a creative Architecture<span>Studio</span></h2>
-                <p>Pellentesque lorem dolor, malesuada eget tortor vitae, tristique lacinia lectus. Pellentesque sed accumsan risus, id aliquam nulla. Integer lorem risus, feugiat at mauris malesuada, accumsan pellentesque ipsum. Nunc dapibus, libero ut pulvinar accumsan, tortor nisl iaculis ligula. Curabitur finibus dolor vel lectus pretium interdum a eget ante. Morbi rhoncus feugiat imperdiet. Curabitur non maximus leo. Nulla in ipsum sed magna egestas bibendum. Integer in sem sagittis, commodo mi sit amet, commodo nibh. Suspendisse potenti. Aliquam erat volutpat. </p>
-                <a href="#" class="site-btn sb-dark">See Project</a>
+                <h2 class="sp-title">Boost Your Business with <span>Altera Solution Inc.</span></h2>
+                <p>We turn every interaction into an opportunity to strengthen your business. Our highly trained team in customer service and sales ensures that your clients receive professional, prompt, and personalized attention, adding value to every conversation. While we handle communication, you can focus on growing your company without the daily operational burden. With a reliable, results-driven service, we help you close more sales, build customer loyalty, and optimize your time. Book a consultation today and take your business to the next level.</p>
+                <a href="#" class="site-btn sb-dark">About Us</a>
             </div>
             <div class="col-lg-5 pt-4">
                 <img src="<?php echo files(); ?>src/img/intro.png" alt="">

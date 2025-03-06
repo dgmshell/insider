@@ -1,8 +1,8 @@
 <?php
 date_default_timezone_set('America/Tegucigalpa');
 
-const ROUTER      = "http://localhost/hondusa/";
-//const ROUTER      = "https://da89-181-115-21-105.ngrok-free.app/hondusa/";
+//const ROUTER      = "http://localhost/hondusa/";
+const ROUTER      = "https://116e-181-115-21-105.ngrok-free.app/hondusa/";
 const DB_HOST     = 'localhost';
 const DB_NAME     = 'hondusa';
 const DB_USER     = 'root';
