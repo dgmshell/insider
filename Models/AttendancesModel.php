@@ -3,7 +3,7 @@
 /**
  *
  */
-class AuthModel extends Mysql
+class AttendancesModel extends Mysql
 {
     private $intUserId;
     private $strUserEmail;
@@ -16,8 +16,12 @@ class AuthModel extends Mysql
     /**
      * @throws Exception
      */
-    public function setLogin($data): false|string
+    public function setPush($check,$data): false|string
     {
+
+
+        return json_encode(array("check"=>$check,"data"=>$data));
+
         $this->strUserEmail = $data["userEmail"];
         $this->strUserPassword = $data["userPassword"];
 

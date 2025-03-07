@@ -23,6 +23,8 @@ class Routers {
 
             case "permissions":
                 return `${router}permissions/assignPermissions`;
+            case "attendances":
+                return `${router}attendances/push`;
 
             default:
                 throw new Error("Debe especificar una ruta válida.");

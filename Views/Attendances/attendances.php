@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Dashboard</h1>
+                    <h1>Attendances Daily</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -24,17 +24,25 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Title</h3>
+                <h3 class="card-title">David Maldonado</h3>
 
                 <div class="card-tools">
                     <div class="container">
-                        <label id="switch" class="switch"><input type="checkbox" />    <div></div>
-                        </label>
+                        <form class="form-data" data-destination="attendances" calling-method="push" data-type="json">
+                            <label id="switch" class="switch">
+                                <input type="checkbox" name="attendance" value="true" />
+                                <div></div>
+                            </label>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="card-body">
-                Start creating your amazing application!
+                Tus asistencias
+                .
+                .
+                .
+                <?php debug($_SESSION['userData']); ?>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
@@ -50,6 +58,19 @@
 <!-- /.content-wrapper -->
 <!-- Admin Sidebar -->
 <?php adminFooter($data); ?>
+<script>
+    // Selecciona el formulario y el checkbox
+    const form = document.querySelector('.form-data');
+    const checkbox = form.querySelector('input[type="checkbox"]');
+
+    // Manejador para detectar el cambio en el checkbox
+    checkbox.addEventListener('change', (e) => {
+        // Cambiar el valor del checkbox al estado correcto antes de enviar
+        checkbox.value = checkbox.checked ? "true" : "false";
+        // Disparar el evento submit
+        form.dispatchEvent(new Event('submit'));
+    });
+</script>
 
     <style>
 

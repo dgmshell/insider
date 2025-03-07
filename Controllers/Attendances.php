@@ -25,10 +25,17 @@ class Attendances extends Controllers
     /**
      * @throws Exception
      */
-    public function new(): void{
-        $data["pageName"]     = "newUser";
-        $this->views->getViews($this, 'new', $data);
-
+    public function push(): void{
+        $data = file_get_contents('php://input');
+        $json = json_decode($data, true);
+        $check = null;
+        if (empty($json)) {
+            $check=0;
+        }else{
+            $check=1;
+        }
+        $request = $this->model->setPush($check,$_SESSION['userData']["profileIdentity"]);
+        debug($request);
     }
     public function setNewUser(): void{
         $user     = "newUser";
