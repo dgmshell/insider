@@ -37,11 +37,11 @@ class PermissionsModel extends Mysql
      * @throws Exception Si ocurre un error durante la asignación de permisos.
      */
 
-    public function assignPermissions(array $modules, int $roleId): array
+    public function assignPermissions(array $modules, int $roleId): false|string
     {
         // Iniciar la transacción
         $this->beginTransaction();
-        $insertedIds = [];
+        //$insertedIds = [];
 
         try {
             $this->deletePermissions($roleId);
@@ -59,12 +59,14 @@ class PermissionsModel extends Mysql
                 $setData = array($roleId, $moduleId, $c, $r, $u, $d);
 
                 $insertedId = $this->save($query, $setData);
-                $insertedIds[] = $insertedId;
+                //$insertedIds[] = $insertedId;
             }
 
             $this->commitTransaction();
-            debug($insertedIds);
-            return $insertedIds;
+            //debug($insertedIds);
+            return json_encode([
+                "status" => "SUCCESS_PERMISSIONS_UPDATE"
+            ]);
         } catch (Exception $e) {
             // Revertir la transacción en caso de error
             $this->rollbackTransaction();

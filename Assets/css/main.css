@@ -47,3 +47,6 @@ tbody td{
     width: auto;
     padding: 12px;
 }
+.card-header{
+    align-items: center;
+}

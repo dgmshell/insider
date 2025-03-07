@@ -21,6 +21,9 @@ class Routers {
             case "payrolls":
                 return `${router}payrolls/updatePayroll`;
 
+            case "permissions":
+                return `${router}permissions/assignPermissions`;
+
             default:
                 throw new Error("Debe especificar una ruta válida.");
         }

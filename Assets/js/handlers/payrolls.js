@@ -19,6 +19,7 @@ export async function setPermission(response) {
                 }, 5000);
                 break;
 
+
             case 'fileSizeError':
                 showToast('Error', data.message, { timeout: 10000, type: 'error' });
                 break;

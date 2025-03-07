@@ -67,14 +67,29 @@ class Permissions extends Controllers
         $data["userId"] = $id;
         $this->views->getViews($this, 'assign', $data, $data1);
     }
-    public function assignPermissions(): false|string
+    public function assignPermissions(): void
     {
         $modules = $_POST['module'];
         $roleId = $_POST['roleId'];
         // Llama al modelo para asignar permisos
-        $response= $this->model->assignPermissions($modules, $roleId);
-        //debug($request);
-        return json_encode($response);
+        $request= $this->model->assignPermissions($modules, $roleId);
+        $response = json_decode($request, true);
+        switch ($response["status"]) {
+            case "SUCCESS_PERMISSIONS_UPDATE":
+
+                echo json_encode(array(
+                    'status' => 'success',
+                    'message'=> 'Permisos actualizados...',
+                    'redirect'=>true));
+                break;
+                default:
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Error desconocido.',
+                    'redirect' => false
+                ]);
+                break;
+        }
     }
 
 
