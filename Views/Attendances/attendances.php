@@ -24,25 +24,74 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">David Maldonado</h3>
-
-                <div class="card-tools">
-                    <div class="container">
-                        <form class="form-data" data-destination="attendances" calling-method="push" data-type="json">
-                            <label id="switch" class="switch">
-                                <input type="checkbox" name="attendance" value="true" />
-                                <div></div>
-                            </label>
-                        </form>
+                <form class="form-data" data-destination="attendances" calling-method="push" data-type="json">
+                    <div class="form-group">
+                        <label for="attendanceNote">Justificación (si llega tarde)</label>
+                        <textarea class="form-control form-control-db" rows="3" placeholder="Enter ..." name="attendanceNote"
+                                id="attendanceNote" <?php echo ($data["statusAttendance"] === "SUCCESS_ATTENDANCE") ? 'disabled' : ''; ?>></textarea>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label id="switch" class="switch <?php echo ($data["attendanceDaily"] === "OFF") ? 'switch-off' : 'switch-on'; ?>">
+                            <input <?php echo ($data["statusAttendance"] === "SUCCESS_ATTENDANCE") ? 'disabled' : ''; ?> type="checkbox" name="switchState" value="true" <?php echo ($data["attendanceDaily"] === "ON") ? 'CHECKED' : ''; ?> />
+                            <div></div>
+                        </label>
+                    </div>
+                </form>
             </div>
             <div class="card-body">
-                Tus asistencias
-                .
-                .
-                .
-                <?php debug($_SESSION['userData']); ?>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
+                        <th scope="col">Start Note</th>
+                        <th scope="col">End Note</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row"><?php echo $_SESSION['userData']['userName'];?></td>
+                            <th><?php echo $_SESSION['userData']['profileNames'];?></th>
+                            <td><?php echo $data1["attendanceStartTime"]?></td>
+                            <td><?php echo $data1["attendanceEndTime"]?></td>
+                            <td><?php echo $data1["attendanceStartNote"]?></td>
+                            <td><?php echo $data1["attendanceEndNote"]?></td>
+                        </tr>
+                    </tbody>
+                </table>
+<!--                <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="timeline">-->
+<!--                            <div class="time-label">-->
+<!--                                <span class="bg-red">10 Feb. 2014</span>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <i class="fas fa-envelope bg-blue"></i>-->
+<!--                                <div class="timeline-item">-->
+<!--                                    <span class="time"><i class="fas fa-clock"></i> 12:05</span>-->
+<!--                                    <h3 class="timeline-header"><a href="#">@--><?php //echo $_SESSION['userData']['userName'];?><!--</a> sent you an email</h3>-->
+<!---->
+<!--                                    <div class="timeline-body">-->
+<!--                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,-->
+<!--                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity-->
+<!--                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle-->
+<!--                                        quora plaxo ideeli hulu weebly balihoo...-->
+<!--                                    </div>-->
+<!--                                    <div class="timeline-footer">-->
+<!--                                        <a class="btn btn-primary btn-sm">Read more</a>-->
+<!--                                        <a class="btn btn-danger btn-sm">Delete</a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <i class="fas fa-clock bg-gray"></i>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
