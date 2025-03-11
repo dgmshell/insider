@@ -18,10 +18,21 @@ class AttendancesModel extends Mysql
      */
     public function getTodayAttendance($userId): array
     {
+        $query = "SELECT 
+                a.*, 
+                u.userName AS userName, 
+                p.profileNames AS profileNames, 
+                s.startTime 
+              FROM attendances a
+              INNER JOIN users u ON a.userId = u.userId
+              INNER JOIN profiles p ON a.userId = p.userId
+              INNER JOIN schedules s ON a.userId = s.userId
+              WHERE a.userId = ? 
+              AND DATE(a.attendanceCreatedIn) = CURDATE()";
 
-        $query   = "SELECT * FROM attendances WHERE userId = ? AND DATE(attendanceCreatedIn) = CURDATE()";
-        return $this->find($query,[$userId]);
+        return $this->find($query, [$userId]);
     }
+
 
     /**
      * @throws Exception

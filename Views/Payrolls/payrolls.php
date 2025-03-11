@@ -57,7 +57,7 @@ $payrolls=$data1;
                             <td scope="row"><?php echo $row['codeFortnight']; ?></td>
                             <td><?php echo $row['startDate']; ?> <?php echo $row['endDate']; ?></td>
                             <td><?php echo $row['payrollCreationDate']; ?></td>
-                            <td><a href="http://localhost/insider/payrolls/overview/<?php echo $row['payrollId']; ?>">Crear</a></td>
+                            <td><a href="<?php echo router(); ?>payrolls/overview/<?php echo $row['payrollId']; ?>">Crear</a></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
