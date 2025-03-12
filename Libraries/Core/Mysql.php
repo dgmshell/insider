@@ -1,15 +1,12 @@
 <?php
-
 class Mysql extends Connection
 {
     private ?PDO $connection;
-
     public function __construct()
     {
         parent::__construct();
         $this->connection = self::getInstance();
     }
-
     /**
      * Inserta datos en la base de datos.
      *
@@ -30,7 +27,6 @@ class Mysql extends Connection
             throw new Exception("Error al insertar datos: " . $e->getMessage());
         }
     }
-
     /**
      * Encuentra un registro en la base de datos.
      *
@@ -43,7 +39,6 @@ class Mysql extends Connection
     {
         return $this->executeQuery($query, $params, false);
     }
-
     /**
      * Encuentra todos los registros en la base de datos.
      *
@@ -56,7 +51,6 @@ class Mysql extends Connection
     {
         return $this->executeQuery($query, $params, true);
     }
-
     /**
      * Actualiza un registro en la base de datos.
      *
@@ -77,7 +71,6 @@ class Mysql extends Connection
             throw new Exception("Error al actualizar datos: " . $e->getMessage());
         }
     }
-
     /**
      * Elimina un registro de la base de datos.
      *
@@ -98,7 +91,6 @@ class Mysql extends Connection
             throw new Exception("Error al eliminar datos: " . $e->getMessage());
         }
     }
-
     /**
      * Prepara y ejecuta una declaración SQL.
      *
@@ -115,7 +107,6 @@ class Mysql extends Connection
             if (count($params) !== $expectedParams) {
                 throw new Exception("El número de parámetros no coincide con los marcadores de posición en la consulta.");
             }
-
             $stmt->execute($params); // Ejecuta la consulta con los parámetros
             return $stmt; // Retorna el objeto PDOStatement
         } catch (Exception $e) {
@@ -124,7 +115,6 @@ class Mysql extends Connection
             throw $e; // Lanza la excepción para que pueda ser manejada en updateRecord
         }
     }
-
     /**
      * Ejecuta una consulta y obtiene los resultados.
      *
@@ -144,34 +134,28 @@ class Mysql extends Connection
         // Retorna los resultados según el parámetro $fetchAll
         return $fetchAll ? $result->fetchAll(PDO::FETCH_ASSOC) : ($result->fetch(PDO::FETCH_ASSOC) ?: []);
     }
-
     protected function inTransaction(): bool
     {
         return $this->connection->inTransaction();
     }
-
     protected function beginTransaction(): void
     {
         if (!$this->inTransaction()) {
             $this->connection->beginTransaction();
         }
     }
-
     protected function commitTransaction(): void
     {
         if ($this->inTransaction()) {
             $this->connection->commit();
         }
     }
-
     protected function rollbackTransaction(): void
     {
         if ($this->inTransaction()) {
             $this->connection->rollBack();
         }
     }
-
-
     /**
      * Sanitiza los datos de entrada.
      *

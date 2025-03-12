@@ -2,7 +2,6 @@
 <?php adminHeader($data); ?>
 <!-- Admin Nav -->
 <?php adminNav($data); ?>
-
 <!-- Admin Sidebar -->
 <?php adminSidebar($data); ?>
 <!-- Content Wrapper. Contains page content -->

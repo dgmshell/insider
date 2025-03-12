@@ -2,7 +2,6 @@
 class Dashboard extends Controllers
 {
     protected Views $views;
-
     public function __construct()
     {
         parent::__construct();
@@ -14,7 +13,6 @@ class Dashboard extends Controllers
         getPermissions(MD_DASHBOARD);
 
     }
-
     /**
      * @throws Exception
      */

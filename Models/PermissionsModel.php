@@ -1,4 +1,3 @@
-
 <?php
 /**
  *
@@ -195,8 +194,4 @@ class PermissionsModel extends Mysql
             throw new Exception("Error al obtener los permisos del módulo: " . $e->getMessage(), $e->getCode(), $e);
         }
     }
-
-
-
-
 }

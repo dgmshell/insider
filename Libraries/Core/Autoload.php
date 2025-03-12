@@ -13,7 +13,6 @@ spl_autoload_register(/**
     function (string $class) {
         // Define el directorio base para los archivos de clase
         $baseDir = 'Libraries' . DIRECTORY_SEPARATOR . 'Core' . DIRECTORY_SEPARATOR;
-
         // Construye la ruta completa del archivo
         $filePath = $baseDir . $class . '.php';
 

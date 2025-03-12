@@ -15,34 +15,22 @@ class Auth extends Controllers
     /**
      * @throws Exception
      */
-    public function users(): void
+    public function login(): void
     {
-
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function login(): void{
-        $data["pageName"]     = "login";
-
-
+        $data["pageName"] = "login";
         $this->views->getViews($this, 'login', $data);
-
     }
+
     public function setLogin(): void
     {
-        // Obtener y decodificar los datos JSON recibidos en la solicitud
         $data = file_get_contents('php://input');
         $json = json_decode($data, true);
 
-        // Extraer los datos del formulario
         $FormData = [
             'userEmail' => $json['userEmail'] ?? '',
             'userPassword' => $json['userPassword'] ?? ''
         ];
 
-        // Verificar si hay campos vacíos
         $FieldVerification = emptyFields($FormData);
 
         if (!empty($FieldVerification)) {
@@ -52,29 +40,25 @@ class Auth extends Controllers
                 'fields' => $FieldVerification,
                 'redirect' => false
             ]);
-            return; // Detener ejecución para evitar continuar
+            return;
         }
 
-        // Llamar al modelo para intentar iniciar sesión
         $request = $this->model->setLogin($FormData);
         $response = json_decode($request, true);
-        // Verificar el resultado de la respuesta del modelo y responder según el caso
+
         switch ($response["status"]) {
             case "SUCCESS_USER_VALID":
-
-
-                if($response['data']['userStatus'] == 1) {
+                if ($response['data']['userStatus'] == 1) {
                     $_SESSION['userId'] = $response['data']['userId'];
                     $_SESSION['login'] = true;
 
+                    $this->model->sessionLogin($_SESSION['userId']);
 
-                    $arrayData = $this->model->sessionLogin($_SESSION['userId']);
-//                    debug($_SESSION['userData']);
-                    echo json_encode(array(
+                    echo json_encode([
                         'status' => 'login',
-                        'message'=> 'Acceso exitoso, lo estamos redireccionando...',
-                        'redirect'=>true));
-
+                        'message' => 'Acceso exitoso, lo estamos redireccionando...',
+                        'redirect' => true
+                    ]);
                 }
                 break;
 
@@ -112,9 +96,9 @@ class Auth extends Controllers
         }
     }
 
-    public function signup(): void{
-        $data["pageName"]      = "signup";
-        $this->views->getViews($this, 'signup', $data,$arrayData);
-
+    public function signup(): void
+    {
+        $data["pageName"] = "signup";
+        $this->views->getViews($this, 'signup', $data);
     }
 }

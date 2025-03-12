@@ -25,10 +25,7 @@ class Attendances extends Controllers
         } else {
             $data["attendanceDaily"] = "OFF";
         }
-
-
-
-        debug($attendanceDaily);
+        //debug($attendanceDaily);
 
         $statusAttendance = json_decode($statusAttendance, true);
         $data["statusAttendance"] = $statusAttendance["status"];
@@ -72,8 +69,7 @@ class Attendances extends Controllers
         } elseif ($isSwitchOn == 0) {  // Switch desactivado (check-out)
             if ($attendanceToday && (empty($attendanceToday['attendancesEndTime']) || $attendanceToday['attendancesEndTime'] === "00:00:00")) {
                 $request = $this->model->updateCheckOut($userId,$currentTime,$attendanceNote);
-
-                debug($request);
+                //debug($request);
             } else {
                 echo "No se puede registrar la salida sin una entrada previa.";
             }
@@ -82,8 +78,9 @@ class Attendances extends Controllers
         }
     }
 
-    public function setNewUser(): void{
-        $user     = "newUser";
+    public function setNewUser(): void
+    {
+        $user = "newUser";
         $users = $this->model->setNewUser($user);
 
     }
