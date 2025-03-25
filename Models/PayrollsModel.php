@@ -198,6 +198,19 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             throw $e; // Lanzar la excepción original para conservar el stack trace
         }
     }
+    public function getEmployeeAttendanceDays($userId, $startDate, $endDate): int
+    {
+        $query = "SELECT COUNT(DISTINCT DATE(attendanceCreatedIn)) AS totalDays 
+              FROM attendances 
+              WHERE userId = ? 
+              AND attendanceCreatedIn >= ? 
+              AND attendanceCreatedIn <= CONCAT(?, ' 23:59:59')";
+
+        $request = $this->find($query, [$userId, $startDate, $endDate]);
+
+        return !empty($request['totalDays']) ? (int)$request['totalDays'] : 0;
+    }
+
 
 }
 

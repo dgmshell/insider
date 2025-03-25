@@ -74,6 +74,10 @@ class Payrolls extends Controllers
         //debug($payroll);
         $this->views->getViews($this, 'create', $data,$payroll,$employees);
     }
+
+    /**
+     * @throws Exception
+     */
     public function overview($id): void
     {
 
@@ -101,6 +105,8 @@ class Payrolls extends Controllers
 
         $detailPayroll = $this->model->detailPayrollId($id);
 
+        $startFortnight=$payroll["startDate"];
+        $endFortnight = $payroll["endDate"];
 
         $defaultDetail = [
             'codeFortnight' => $payroll['codeFortnight'],
@@ -123,7 +129,11 @@ class Payrolls extends Controllers
         $bankName="";
         //debug($detailPayroll);
         foreach ($employees as &$detail) {
+            $employeeId = $detail['employeeId'];
             $detail['details'] = $defaultDetail;
+
+            $daysWorked = $this->model->getEmployeeAttendanceDays($employeeId, $startFortnight, $endFortnight);
+            echo $daysWorked;
 
             foreach ($detailPayroll as $employee) {
 
@@ -156,7 +166,7 @@ class Payrolls extends Controllers
                         'commissions' => $employee['commissions'],
                         'bonuses' => $employee['bonuses'],
                         'otherIncome' => $employee['otherIncome'],
-                        'daysAbsent' => $employee['daysAbsent'],
+                        'daysAbsent' => $daysWorked,
                         'otherDeductions' => $employee['otherDeductions'],
                         'ihss' => $employee['ihss'],
                         'rapFioPiso' => $employee['rapFioPiso'],
@@ -174,12 +184,12 @@ class Payrolls extends Controllers
         $data["userId"] = $id;
         //debug($data1['employees']);
 
-
+      $data2=$payroll;
 
 
         //debug($employees);
-        //debug($payroll);
-        $this->views->getViews($this, 'overview', $data,$data1);
+        debug($payroll);
+        $this->views->getViews($this, 'overview', $data,$data1,$data2);
     }
     /**
      * @throws Exception

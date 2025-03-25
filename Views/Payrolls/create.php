@@ -287,6 +287,10 @@ function statusCheckbox() {
 
         // Función existente para recalcular valores de la fila
         const recalculateRow = (rowIndex) => {
+
+
+
+
             const data = jsonData[rowIndex];
             const row = rows[rowIndex];
 

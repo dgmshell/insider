@@ -30,6 +30,10 @@ class AttendancesModel extends Mysql
 
         return $this->find($query, [$userId]);
     }
+
+
+
+
     /**
      * @throws Exception
      */

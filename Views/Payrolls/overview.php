@@ -8,7 +8,8 @@
 <?php
 /** @var Payrolls $data1 */
 $payroll=$data1;
-
+/** @var Payrolls $data2 */
+$settings=$data2;
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -63,7 +64,11 @@ $payroll=$data1;
                             <th scope="col">Total Ingresos</th>
                             <th scope="col" colspan="2">Dias Faltados</th>
                             <th scope="col">Otras deducciones</th>
-                            <th scope="col">IHSS</th>
+                            <th scope="col">
+                                IHSS
+                                <input type="checkbox" id="checkedIhss" <?php echo ($settings["ihssChecked"] > 0) ? 'checked' : ''; ?>>
+
+                            </th>
                             <th scope="col">RAP FIO Piso</th>
                             <th scope="col">RAP FIO</th>
                             <th scope="col">ISR</th>
@@ -128,7 +133,7 @@ $payroll=$data1;
                                 <td><input class="deduction-lost-days form-control form-control-db" type="text" value="<?php echo $deductionLostDays; ?>"></td>
                                 <td><input class="other-deductions form-control form-control-db" type="text" value="<?php echo $otherDeductions; ?>" name="employee[<?php echo $i?>][otherDeductions]"></td>
 
-                                <td><input class="ihss form-control form-control-db" type="text" value="<?php echo $ihss; ?>" name="employee[<?php echo $i?>][ihss]"></td>
+                                <td><input class="ihss form-control form-control-db" type="text" data-value="ihss" value="<?php echo $ihss; ?>" name="employee[<?php echo $i?>][ihss]"></td>
 
                                 <td><input class="rap-fio-piso form-control form-control-db" type="text" value="<?php echo $rapFioPiso; ?>" name="employee[<?php echo $i?>][rapFioPiso]"></td>
                                 <td><input class="rap-fio form-control form-control-db" type="text" value="<?php echo $rapFio; ?>" name="employee[<?php echo $i?>][rapFio]"></td>
@@ -165,6 +170,15 @@ $payroll=$data1;
 <!-- Admin Sidebar -->
 <?php adminFooter($data); ?>
 <script>
+    const valueCalculateRapFio = 0.015;
+    const valueCalculateIhss = 561.14;
+
+    const valueCalculateIsr = 20986.03;
+
+    const checkedIhss = document.getElementById("checkedIhss");
+    const checkedIsr = document.getElementById("checkedIsr");
+    const checkedRapFio = document.getElementById("checkedRapFio");
+
     document.addEventListener('DOMContentLoaded', () => {
         const rows = document.querySelectorAll('tbody tr');
 
@@ -185,7 +199,15 @@ $payroll=$data1;
                 totalDeductions: row.querySelector('.total-deductions'),
                 totalFortNight: row.querySelector('.total-fort-night'),
             };
+            checkedIhss.addEventListener("change", () => {
 
+                if (checkedIhss.checked) {
+                    elements.ihss.value = valueCalculateIhss.toFixed(2);
+                } else {
+                    elements.ihss.value = 0; // Si no está marcado, dejar el valor en 0
+                }
+                recalculateAll();
+            });
             const getBaseSalary = () => parseFloat(elements.baseSalary.value) || 0;
 
             const recalculateTotal = () => {
