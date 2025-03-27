@@ -133,7 +133,7 @@ class Payrolls extends Controllers
             $detail['details'] = $defaultDetail;
 
             $daysWorked = $this->model->getEmployeeAttendanceDays($employeeId, $startFortnight, $endFortnight);
-            echo $daysWorked;
+           // echo $daysWorked;
 
             foreach ($detailPayroll as $employee) {
 
@@ -166,7 +166,7 @@ class Payrolls extends Controllers
                         'commissions' => $employee['commissions'],
                         'bonuses' => $employee['bonuses'],
                         'otherIncome' => $employee['otherIncome'],
-                        'daysAbsent' => $daysWorked,
+                        'daysAbsent' => 15-$daysWorked,
                         'otherDeductions' => $employee['otherDeductions'],
                         'ihss' => $employee['ihss'],
                         'rapFioPiso' => $employee['rapFioPiso'],
@@ -188,7 +188,7 @@ class Payrolls extends Controllers
 
 
         //debug($employees);
-        debug($payroll);
+        //debug($payroll);
         $this->views->getViews($this, 'overview', $data,$data1,$data2);
     }
     /**
