@@ -14,9 +14,9 @@ export async function setPermission(response) {
         switch (data.status) {
             case 'success':
                 showToast('Exito', data.message, { timeout: 10000, type: 'success' });
-                setTimeout(function() {
-                    window.location.href = router +'home/end';
-                }, 5000);
+                // setTimeout(function() {
+                //     window.location.href = router +'home/end';
+                // }, 5000);
                 break;
 
 
