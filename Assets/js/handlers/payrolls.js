@@ -48,9 +48,9 @@ export async function updatePayroll(response) {
         case 'success':
 
             showToast('Exito', data.message, { timeout: 10000, type: 'success' });
-            setTimeout(function() {
-                window.location.href = router +'dashboard';
-            }, 5000);
+            // setTimeout(function() {
+            //     window.location.href = router +'dashboard';
+            // }, 5000);
             break;
 
         case 'error':

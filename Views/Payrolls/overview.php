@@ -66,7 +66,7 @@ $settings=$data2;
                             <th scope="col">Otras deducciones</th>
                             <th scope="col">
                                 IHSS
-                                <input type="checkbox" id="checkedIhss" <?php echo ($settings["ihssChecked"] > 0) ? 'checked' : ''; ?>>
+                                <input type="checkbox" name="checkedIhss" id="checkedIhss" <?php echo ($settings["ihssChecked"] > 0) ? 'checked' : ''; ?>>
 
                             </th>
                             <th scope="col">RAP FIO Piso</th>
@@ -171,8 +171,8 @@ $settings=$data2;
 <?php adminFooter($data); ?>
 <script>
     const valueCalculateRapFio = 0.015;
-    const valueCalculateIhss = 561.14;
-
+    const valueCalculateIhss = "<?php echo $data['payrollIhss']?>";
+    console.log(valueCalculateIhss)
     const valueCalculateIsr = 20986.03;
 
     const checkedIhss = document.getElementById("checkedIhss");

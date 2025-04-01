@@ -117,7 +117,7 @@ class PayrollsModel extends Mysql
         }
         return $request;
     }
-    public function setPayrollDetail(array $payrolls, int $payrollId): false|string
+    public function setPayrollDetail(array $payrolls, int $payrollId, int $checkedIhss): false|string
     {
         $this->beginTransaction();
         //$insertedIds = [];
@@ -160,6 +160,12 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $insertedId = $this->save($query, $setData);
                 //$insertedIds[] = $insertedId;
             }
+
+            $query = "UPDATE payrolls SET ihssChecked = ? WHERE payrollId = ?";
+            $setData = array($checkedIhss, $payrollId);
+
+            $this->updateRecord($query, $setData);
+
 
             $this->commitTransaction();
             // Retornar JSON de éxito

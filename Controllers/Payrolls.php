@@ -100,7 +100,9 @@ class Payrolls extends Controllers
         $data["tagTitle"]     = "Overview";
 
         $data["payrollId"] = $id;
+
         $payroll = $this->model->getPayroll($id);
+        $data["payrollIhss"] = $payroll["payrollIhss"];
         $employees = $this->model->getEmployees();
 
         $detailPayroll = $this->model->detailPayrollId($id);
@@ -306,13 +308,15 @@ class Payrolls extends Controllers
 
         $payroll = $_POST;
         $payrollId = $payroll['payrollId'];
-        //($payroll);
-        $request =   $this->model->setPayrollDetail($payroll,$payrollId);
+        $checkedIhss = isset($payroll['checkedIhss']) && $payroll['checkedIhss'] === 'on' ? 1 : 0;
+
+        $request = $this->model->setPayrollDetail($payroll, $payrollId, $checkedIhss);
+
+
         $response = json_decode($request, true);
 
         switch ($response["status"]) {
             case "SUCCESS_PAYROLL_UPDATE":
-
                     echo json_encode(array(
                         'status' => 'success',
                         'message'=> 'Planilla actualizada...',
